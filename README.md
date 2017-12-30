@@ -49,6 +49,7 @@ Foreman is a mature project, deployed in [many organizations](http://projects.th
 ![Statistics](http://imgur.com/DKGjtFQ.png)
 ![Partition tables](http://imgur.com/Gg80lzg.png)
 ![Installation media](http://imgur.com/BsYcvoM.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsharvit%2Fforeman.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsharvit%2Fforeman?ref=badge_shield)
 
 # Installation
 Read the [quickstart section](https://theforeman.org/manuals/latest/quickstart_guide.html#QuickstartGuide) of the manual. If you know your setup has some specific needs, read the [installation scenarios section](https://theforeman.org/manuals/latest/#3.2.3InstallationScenarios).
@@ -82,3 +83,6 @@ You can find a more thorough list of people who have contributed to this project
 # License
 
 See [LICENSE](LICENSE) file.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsharvit%2Fforeman.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsharvit%2Fforeman?ref=badge_large)
