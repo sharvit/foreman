@@ -2,7 +2,7 @@ import React from 'react';
 import { Breadcrumb } from 'patternfly-react';
 import 'patternfly-react/dist/sass/_breadcrumb.scss';
 
-const ForemanBreadcrumb = ({ data }) => {
+const ForemanBreadcrumb = ({ data, children }) => {
   if (data.menu.length === 1) {
     return (
       <div className="form-group">
@@ -10,8 +10,8 @@ const ForemanBreadcrumb = ({ data }) => {
       </div>
     );
   }
+
   return (
-    <div>
       <Breadcrumb title>
         {data.menu.map((item, index) => (
           <Breadcrumb.Item
@@ -21,9 +21,8 @@ const ForemanBreadcrumb = ({ data }) => {
             dangerouslySetInnerHTML={{ __html: item.caption }}
           />
         ))}
+        {children}
       </Breadcrumb>
-      <hr className="breadcrumb-line" />
-    </div>
   );
 };
 

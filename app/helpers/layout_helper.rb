@@ -1,3 +1,4 @@
+require 'pry'
 module LayoutHelper
   def title(page_title, page_header = nil)
     content_for(:title, page_title.to_s)
@@ -20,9 +21,10 @@ module LayoutHelper
     index_page = {caption: _(controller_name.humanize), url: try("#{controller_name}_path")}
     default_menu = [(index_page unless action_name == 'index'),
                     {caption: @page_header, url: '#' }].compact unless block_given?
-
-    mount_react_component("Breadcrumb", "#breadcrumb",
-      { menu: default_menu || yield }.to_json)
+    mount_react_component("BreadcrumbBar", "#breadcrumb",
+      { menu: default_menu || yield, resource: controller_name, action: action_name,
+        reosurceUrl: "/api/v2/#{controller_name}?thin=true", name: controller_name.capitalize.singularize.constantize.try(:title_name) || 'name'
+      }.to_json)
   end
 
   def breadcrumbs(&block)

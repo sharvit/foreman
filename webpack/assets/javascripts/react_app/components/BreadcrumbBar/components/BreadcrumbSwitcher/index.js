@@ -17,15 +17,15 @@ const BreadcrumbSwitcher = ({ resources }) => {
     <Popover id="popover-contained">
       <ListGroup className="scrollable-list">
         {resources.map((item) => {
-          const { onClick, url, caption } = item;
+          const { onClick, url, name } = item;
           return (
             <ListGroupItem
               className="no-border"
-              key={`id-${caption}`}
+              key={`id-${name}`}
               href={url}
               onClick={onClick}
             >
-              <EllipsisWithTooltip>{caption}</EllipsisWithTooltip>
+              <EllipsisWithTooltip>{name}</EllipsisWithTooltip>
             </ListGroupItem>
           );
         })}
@@ -33,7 +33,7 @@ const BreadcrumbSwitcher = ({ resources }) => {
     </Popover>
   );
   return (
-    <ButtonToolbar>
+    <ButtonToolbar className='breadcrumb-switcher'>
       <OverlayTrigger
         rootClose
         trigger="click"
@@ -51,7 +51,7 @@ const BreadcrumbSwitcher = ({ resources }) => {
 BreadcrumbSwitcher.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
-  caption: PropTypes.string,
+  name: PropTypes.string,
 };
 
 export default BreadcrumbSwitcher;

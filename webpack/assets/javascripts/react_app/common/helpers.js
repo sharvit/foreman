@@ -6,4 +6,7 @@ export default {
     });
   },
   noop: Function.prototype, // empty function
+  urlBuilder(controller, action, id = undefined) {
+    return `/${controller}/${id ? `${id}/` : ''}${action !== 'show' ? action : ''}`;
+  },
 };
