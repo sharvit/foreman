@@ -8,7 +8,7 @@ import ToastsList from './toastNotifications/';
 import StorageContainer from './hosts/storage/vmware/';
 import BookmarkContainer from './bookmarks';
 import PasswordStrength from './user/passwordStrength/';
-import ForemanBreadcrumb from './Breadcrumb';
+import ForemanBreadcrumb from './BreadcrumbBar/components/Breadcrumb';
 
 const componentRegistry = {
   registry: {},

@@ -10,6 +10,7 @@ const ForemanBreadcrumb = ({ data }) => {
       </div>
     );
   }
+
   return (
     <div>
       <Breadcrumb title>
