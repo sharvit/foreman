@@ -18,16 +18,28 @@ module LayoutHelper
   end
 
   def mount_breadcrumbs(&block)
-    index_page = {caption: _(controller_name.humanize), url: try("#{controller_name}_path")}
-    default_menu = {menu: [(index_page unless action_name == 'index'),
-                    {caption: @page_header, url: '#' }].compact} unless block_given?
-    breadcrumbs_block = block_given? ? yield : {}       
-    switcher = (breadcrumb_switchable? || breadcrumbs_block[:switchable]) ? { switcherItemUrl: switcher_url_template,
-                                                                  reosurceUrl: "/api/v2/#{controller_name}?thin=true",
-                                                                  name: controller_name.camelize.singularize.constantize.try(:title_name) || 'name',
-                                                                  swichable: breadcrumb_switchable? || breadcrumbs_block[:switchable] } : {}         
-    mount_react_component("BreadcrumbBar", "#breadcrumb",
-      switcher.merge(default_menu || breadcrumbs_block).to_json)
+    consumer_override_params = block_given? ? yield : {}
+
+    breadcrumb_index_item = {caption: _(controller_name.humanize), url: try("#{controller_name}_path")}
+    breadcrumb_page_item = {caption: @page_header, url: '#' }
+
+    breadcrumb_items = [
+      (breadcrumb_index_item unless action_name == 'index'),
+      (breadcrumb_page_item)
+    ].compact
+
+    breadcrumb_bar_props = {
+      isSwitchable: consumer_override_params[:isSwitchable] || breadcrumb_switchable?,
+      breadcrumbItems: consumer_override_params[:breadcrumbItems] || breadcrumb_items
+    }
+
+    breadcrumb_bar_props[:resource] = {
+      switcherItemUrl:  consumer_override_params[:switcherItemUrl] || switcher_url_template,
+      reosurceUrl: consumer_override_params[:reosurceUrl] || "/api/v2/#{controller_name}?thin=true",
+      nameField: consumer_override_params[:nameField] || controller_name.camelize.singularize.constantize.try(:title_name) || 'name',
+    } if breadcrumb_bar_props[:isSwitchable]
+
+    mount_react_component("BreadcrumbBar", "#breadcrumb", breadcrumb_bar_props.to_json)
   end
 
   def breadcrumbs(&block)

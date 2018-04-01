@@ -1,29 +1,29 @@
 import React from 'react';
-import { Breadcrumb } from 'patternfly-react';
+import { Breadcrumb as PfBreadcrumb } from 'patternfly-react';
 import 'patternfly-react/dist/sass/_breadcrumb.scss';
 
-const ForemanBreadcrumb = ({ data, children }) => {
-  if (data.menu.length === 1) {
+const Breadcrumb = ({ items, children }) => {
+  if (items.length === 1) {
     return (
       <div className="form-group">
-        <h1>{data.menu[0].caption}</h1>
+        <h1>{items[0].caption}</h1>
       </div>
     );
   }
 
   return (
-      <Breadcrumb title>
-        {data.menu.map((item, index) => (
-          <Breadcrumb.Item
+      <PfBreadcrumb title>
+        {items.map((item, index) => (
+          <PfBreadcrumb.Item
             key={index}
-            active={index === data.menu.length - 1}
+            active={index === items.length - 1}
             href={item.url}
             dangerouslySetInnerHTML={{ __html: item.caption }}
           />
         ))}
         {children}
-      </Breadcrumb>
+      </PfBreadcrumb>
   );
 };
 
-export default ForemanBreadcrumb;
+export default Breadcrumb;

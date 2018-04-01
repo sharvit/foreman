@@ -9,7 +9,7 @@ import StorageContainer from './hosts/storage/vmware/';
 import BookmarkContainer from './bookmarks';
 import PasswordStrength from './user/passwordStrength/';
 import ForemanBreadcrumb from './BreadcrumbBar/components/Breadcrumb';
-import BreadcrumbBar from './BreadcrumbBar/BreadcrumbBar';
+import BreadcrumbBar from './BreadcrumbBar';
 
 const componentRegistry = {
   registry: {},
