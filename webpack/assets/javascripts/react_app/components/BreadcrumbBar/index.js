@@ -10,7 +10,7 @@ import BreadcrumbBar from './BreadcrumbBar';
 const mapStateToProps = ({ breadcrumbBar }) => ({
   resourceSwitcherItems: breadcrumbBar.resourceSwitcherItems,
   isSwitcherOpen: breadcrumbBar.isSwitcherOpen,
-  isLoading: breadcrumbBar.isLoading,
+  isLoadingResources: breadcrumbBar.isLoadingResources,
   requestError: breadcrumbBar.requestError,
 });
 

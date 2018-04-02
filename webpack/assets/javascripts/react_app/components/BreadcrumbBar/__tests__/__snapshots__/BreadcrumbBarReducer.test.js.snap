@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadcrumbBar reducer should handle BREADCRUMB_BAR_CLOSE_SWITCHER 1`] = `
+Object {
+  "isLoadingResources": false,
+  "isSwitcherOpen": false,
+  "requestError": null,
+  "resourceSwitcherItems": Array [],
+}
+`;
+
+exports[`BreadcrumbBar reducer should handle BREADCRUMB_BAR_RESOURCES_FAILURE 1`] = `
+Object {
+  "isLoadingResources": false,
+  "isSwitcherOpen": false,
+  "requestError": [Error: some error],
+  "resourceSwitcherItems": Array [],
+}
+`;
+
+exports[`BreadcrumbBar reducer should handle BREADCRUMB_BAR_RESOURCES_REQUEST 1`] = `
+Object {
+  "isLoadingResources": true,
+  "isSwitcherOpen": false,
+  "requestError": null,
+  "resourceSwitcherItems": Array [],
+}
+`;
+
+exports[`BreadcrumbBar reducer should handle BREADCRUMB_BAR_RESOURCES_SUCCESS 1`] = `
+Object {
+  "isLoadingResources": false,
+  "isSwitcherOpen": false,
+  "requestError": null,
+  "resourceSwitcherItems": Array [
+    Object {
+      "name": "Host 1",
+      "url": "#",
+    },
+    Object {
+      "name": "Host 2",
+      "url": "#",
+    },
+    Object {
+      "name": "Host 3 with a very long name",
+      "url": "#",
+    },
+    Object {
+      "name": "Host 4",
+      "onClick": [Function],
+      "url": undefined,
+    },
+    Object {
+      "name": "Host 5",
+      "onClick": undefined,
+      "url": "#",
+    },
+  ],
+}
+`;
+
+exports[`BreadcrumbBar reducer should handle BREADCRUMB_BAR_TOGGLE_SWITCHER 1`] = `
+Object {
+  "isLoadingResources": false,
+  "isSwitcherOpen": true,
+  "requestError": null,
+  "resourceSwitcherItems": Array [],
+}
+`;
+
+exports[`BreadcrumbBar reducer should return the initial state 1`] = `
+Object {
+  "isLoadingResources": false,
+  "isSwitcherOpen": false,
+  "requestError": null,
+  "resourceSwitcherItems": Array [],
+}
+`;

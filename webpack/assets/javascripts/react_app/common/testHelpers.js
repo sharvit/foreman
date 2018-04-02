@@ -1,3 +1,7 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+
 export default {
   mockStorage: () => {
     const storage = {};
@@ -30,3 +34,11 @@ export default {
 
 export const classFunctionUnitTest = (obj, func, objThis, args) =>
   obj.prototype[func].apply(objThis, args);
+
+export const testComponentSnapshotsWithFixtures = (Component, fixtures) => {
+  Object.entries(fixtures).forEach(([description, props]) =>
+    it(description, () => {
+      const wrapper = shallow(<Component {...props} />);
+      expect(toJson(wrapper)).toMatchSnapshot();
+    }));
+};

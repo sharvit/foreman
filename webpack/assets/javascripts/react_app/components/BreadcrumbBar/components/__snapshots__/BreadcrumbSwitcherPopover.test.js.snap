@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadcrumbSwitcherPopover render loading state 1`] = `
+<Popover
+  bsClass="popover"
+  className="breadcrumb-switcher-popover"
+  id="some-id"
+  placement="right"
+>
+  <div>
+    Loading...
+  </div>
+</Popover>
+`;
+
+exports[`BreadcrumbSwitcherPopover render resources list 1`] = `
+<Popover
+  bsClass="popover"
+  className="breadcrumb-switcher-popover"
+  id="some-id"
+  placement="right"
+>
+  <ListGroup
+    bsClass="list-group"
+    className="scrollable-list"
+  >
+    <ListGroupItem
+      bsClass="list-group-item"
+      className="no-border"
+      href="#"
+      key="id-Host 1"
+      listItem={false}
+    >
+      <EllipisWithTooltip>
+        Host 1
+      </EllipisWithTooltip>
+    </ListGroupItem>
+    <ListGroupItem
+      bsClass="list-group-item"
+      className="no-border"
+      href="#"
+      key="id-Host 2"
+      listItem={false}
+    >
+      <EllipisWithTooltip>
+        Host 2
+      </EllipisWithTooltip>
+    </ListGroupItem>
+    <ListGroupItem
+      bsClass="list-group-item"
+      className="no-border"
+      href="#"
+      key="id-Host 3 with a very long name"
+      listItem={false}
+    >
+      <EllipisWithTooltip>
+        Host 3 with a very long name
+      </EllipisWithTooltip>
+    </ListGroupItem>
+    <ListGroupItem
+      bsClass="list-group-item"
+      className="no-border"
+      key="id-Host 4"
+      listItem={false}
+      onClick={[Function]}
+    >
+      <EllipisWithTooltip>
+        Host 4
+      </EllipisWithTooltip>
+    </ListGroupItem>
+    <ListGroupItem
+      bsClass="list-group-item"
+      className="no-border"
+      href="#"
+      key="id-Host 5"
+      listItem={false}
+    >
+      <EllipisWithTooltip>
+        Host 5
+      </EllipisWithTooltip>
+    </ListGroupItem>
+  </ListGroup>
+</Popover>
+`;

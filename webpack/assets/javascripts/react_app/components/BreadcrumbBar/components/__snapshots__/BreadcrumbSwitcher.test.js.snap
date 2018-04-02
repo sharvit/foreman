@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadcrumbSwitcher render loading state 1`] = `
+<div
+  className="breadcrumb-switcher"
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <BreadcrumbSwitcherToggler
+    onClick={[Function]}
+  />
+  <Overlay
+    animation={[Function]}
+    container={
+      BreadcrumbSwitcher {
+        "context": Object {},
+        "props": Object {
+          "isLoadingResources": false,
+          "loading": true,
+          "onOverlayEnter": [Function],
+          "onOverlayHide": [Function],
+          "onTogglerClick": [Function],
+          "open": false,
+          "resources": Array [],
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <BreadcrumbSwitcher
+              isLoadingResources={false}
+              loading={true}
+              onOverlayEnter={[Function]}
+              onOverlayHide={[Function]}
+              onTogglerClick={[Function]}
+              open={false}
+              resources={Array []}
+      />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": null,
+            "_rendered": <div
+              className="breadcrumb-switcher"
+              style={
+                      Object {
+                              "position": "relative",
+                            }
+              }
+      >
+              <BreadcrumbSwitcherToggler
+                      onClick={[Function]}
+              />
+              <Overlay
+                      animation={[Function]}
+                      container={[Circular]}
+                      onEnter={[Function]}
+                      onHide={[Function]}
+                      placement="bottom"
+                      rootClose={true}
+                      show={false}
+                      target={[Function]}
+              >
+                      <BreadcrumbSwitcherPopover
+                              id="breadcrumb-switcher-popover"
+                              loading={false}
+                              resources={Array []}
+                      />
+              </Overlay>
+      </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
+    onEnter={[Function]}
+    onHide={[Function]}
+    placement="bottom"
+    rootClose={true}
+    show={false}
+    target={[Function]}
+  >
+    <BreadcrumbSwitcherPopover
+      id="breadcrumb-switcher-popover"
+      loading={false}
+      resources={Array []}
+    />
+  </Overlay>
+</div>
+`;
+
+exports[`BreadcrumbSwitcher render resources list 1`] = `
+<div
+  className="breadcrumb-switcher"
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <BreadcrumbSwitcherToggler
+    onClick={[Function]}
+  />
+  <Overlay
+    animation={[Function]}
+    container={
+      BreadcrumbSwitcher {
+        "context": Object {},
+        "props": Object {
+          "isLoadingResources": false,
+          "loading": false,
+          "onOverlayEnter": [Function],
+          "onOverlayHide": [Function],
+          "onTogglerClick": [Function],
+          "open": false,
+          "resources": Array [
+            Object {
+              "name": "Host 1",
+              "url": "#",
+            },
+            Object {
+              "name": "Host 2",
+              "url": "#",
+            },
+            Object {
+              "name": "Host 3 with a very long name",
+              "url": "#",
+            },
+            Object {
+              "name": "Host 4",
+              "onClick": [Function],
+              "url": undefined,
+            },
+            Object {
+              "name": "Host 5",
+              "onClick": undefined,
+              "url": "#",
+            },
+          ],
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <BreadcrumbSwitcher
+              isLoadingResources={false}
+              loading={false}
+              onOverlayEnter={[Function]}
+              onOverlayHide={[Function]}
+              onTogglerClick={[Function]}
+              open={false}
+              resources={
+                      Array [
+                              Object {
+                                "name": "Host 1",
+                                "url": "#",
+                              },
+                              Object {
+                                "name": "Host 2",
+                                "url": "#",
+                              },
+                              Object {
+                                "name": "Host 3 with a very long name",
+                                "url": "#",
+                              },
+                              Object {
+                                "name": "Host 4",
+                                "onClick": [Function],
+                                "url": undefined,
+                              },
+                              Object {
+                                "name": "Host 5",
+                                "onClick": undefined,
+                                "url": "#",
+                              },
+                            ]
+              }
+      />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": null,
+            "_rendered": <div
+              className="breadcrumb-switcher"
+              style={
+                      Object {
+                              "position": "relative",
+                            }
+              }
+      >
+              <BreadcrumbSwitcherToggler
+                      onClick={[Function]}
+              />
+              <Overlay
+                      animation={[Function]}
+                      container={[Circular]}
+                      onEnter={[Function]}
+                      onHide={[Function]}
+                      placement="bottom"
+                      rootClose={true}
+                      show={false}
+                      target={[Function]}
+              >
+                      <BreadcrumbSwitcherPopover
+                              id="breadcrumb-switcher-popover"
+                              loading={false}
+                              resources={
+                                      Array [
+                                              Object {
+                                                "name": "Host 1",
+                                                "url": "#",
+                                              },
+                                              Object {
+                                                "name": "Host 2",
+                                                "url": "#",
+                                              },
+                                              Object {
+                                                "name": "Host 3 with a very long name",
+                                                "url": "#",
+                                              },
+                                              Object {
+                                                "name": "Host 4",
+                                                "onClick": [Function],
+                                                "url": undefined,
+                                              },
+                                              Object {
+                                                "name": "Host 5",
+                                                "onClick": undefined,
+                                                "url": "#",
+                                              },
+                                            ]
+                              }
+                      />
+              </Overlay>
+      </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
+    onEnter={[Function]}
+    onHide={[Function]}
+    placement="bottom"
+    rootClose={true}
+    show={false}
+    target={[Function]}
+  >
+    <BreadcrumbSwitcherPopover
+      id="breadcrumb-switcher-popover"
+      loading={false}
+      resources={
+        Array [
+          Object {
+            "name": "Host 1",
+            "url": "#",
+          },
+          Object {
+            "name": "Host 2",
+            "url": "#",
+          },
+          Object {
+            "name": "Host 3 with a very long name",
+            "url": "#",
+          },
+          Object {
+            "name": "Host 4",
+            "onClick": [Function],
+            "url": undefined,
+          },
+          Object {
+            "name": "Host 5",
+            "onClick": undefined,
+            "url": "#",
+          },
+        ]
+      }
+    />
+  </Overlay>
+</div>
+`;

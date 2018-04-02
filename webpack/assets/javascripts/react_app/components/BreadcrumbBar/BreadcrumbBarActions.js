@@ -1,8 +1,8 @@
 import API from '../../API';
-import Helpers from '../../common/helpers';
 
 import {
   BREADCRUMB_BAR_TOGGLE_SWITCHER,
+  BREADCRUMB_BAR_CLOSE_SWITCHER,
   BREADCRUMB_BAR_RESOURCES_REQUEST,
   BREADCRUMB_BAR_RESOURCES_SUCCESS,
   BREADCRUMB_BAR_RESOURCES_FAILURE,
@@ -12,9 +12,13 @@ export const toggleSwitcher = () => ({
   type: BREADCRUMB_BAR_TOGGLE_SWITCHER,
 });
 
+export const closeSwitcher = () => ({
+  type: BREADCRUMB_BAR_CLOSE_SWITCHER,
+});
+
 export const loadSwitcherResourcesByResource = (resource, options = {}) => (dispatch) => {
   const {
-    url, nameField, switcherItemUrl,
+    reosurceUrl, nameField, switcherItemUrl,
   } = resource;
   // const { query = '', perPage = 10, page = 1 } = options;
 
@@ -36,5 +40,5 @@ export const loadSwitcherResourcesByResource = (resource, options = {}) => (disp
 
   beforeRequest();
 
-  return API.get(url).then(onRequestSuccess, onRequestFail);
+  return API.get(reosurceUrl, {}, { per_page: 1000 }).then(onRequestSuccess, onRequestFail);
 };

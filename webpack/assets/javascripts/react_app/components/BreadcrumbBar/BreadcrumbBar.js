@@ -4,42 +4,28 @@ import Breadcrumb from './components/Breadcrumb';
 import BreadcrumbSwitcher from './components/BreadcrumbSwitcher';
 
 class BreadcrumbBar extends React.Component {
-  componentDidMount() {
-    const { data: { resource }, loadSwitcherResourcesByResource } = this.props;
-
-    loadSwitcherResourcesByResource(resource);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log('nextProps', nextProps);
-    const getResourceFromProps = props => props.data.resource;
-
-    const currentResource = getResourceFromProps(this.props);
-    const nextResource = getResourceFromProps(nextProps);
-
-    if (currentResource.url !== nextResource.url) {
-      this.props.loadSwitcherResourcesByResource(nextResource);
-    }
-  }
-
   render() {
     const {
       data: { breadcrumbItems, isSwitchable, resource },
       resourceSwitcherItems,
+      isLoadingResources,
       isSwitcherOpen,
       toggleSwitcher,
-      loadResourcesByResourceUrl,
+      closeSwitcher,
+      loadSwitcherResourcesByResource,
     } = this.props;
 
     return (
       <div className="breadcrumb-bar">
-        <Breadcrumb items={breadcrumbItems}>
+        <Breadcrumb title items={breadcrumbItems}>
           {isSwitchable && (
             <BreadcrumbSwitcher
-              isOpen={isSwitcherOpen}
+              open={isSwitcherOpen}
+              isLoadingResources={isLoadingResources}
               resources={resourceSwitcherItems}
-              onToggleClick={() => toggleSwitcher()}
-              onOpened={() => loadResourcesByResourceUrl(resource)}
+              onTogglerClick={() => toggleSwitcher()}
+              onOverlayHide={() => closeSwitcher()}
+              onOverlayEnter={() => loadSwitcherResourcesByResource(resource)}
             />
           )}
         </Breadcrumb>
@@ -63,12 +49,11 @@ BreadcrumbBar.propTypes = {
       url: PropTypes.string.isRequired,
     })),
   }),
-  resourceSwitcherItems: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-  })),
+  resourceSwitcherItems: BreadcrumbSwitcher.propTypes.resources,
+  isLoadingResources: PropTypes.bool,
   isSwitcherOpen: PropTypes.bool,
   toggleSwitcher: PropTypes.func,
+  closeSwitcher: PropTypes.func,
   loadSwitcherResourcesByResource: PropTypes.func,
 };
 
@@ -78,9 +63,11 @@ BreadcrumbBar.defaultProps = {
     isSwitchable: false,
   },
   resourceSwitcherItems: [],
+  isLoadingResources: false,
   isSwitcherOpen: false,
   toggleSwitcher: () => null,
-  loadResourcesByResourceUrl: () => null,
+  closeSwitcher: () => null,
+  loadSwitcherResourcesByResource: () => null,
 };
 
 export default BreadcrumbBar;

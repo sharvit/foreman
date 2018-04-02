@@ -202,6 +202,7 @@ module LayoutHelper
   end
 
   def switcher_url_template
-    "/#{controller_name}/:id/#{action_name == 'show' ? '' : action_name}"
+    actual_action_name = (action_name == 'show') ? '' : action_name
+    "/#{controller_name}/:id/#{actual_action_name}"
   end
 end
