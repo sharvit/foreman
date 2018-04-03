@@ -19,12 +19,15 @@ module LayoutHelper
 
   def mount_breadcrumbs(&block)
     index_page = {caption: _(controller_name.humanize), url: try("#{controller_name}_path")}
-    default_menu = [(index_page unless action_name == 'index'),
-                    {caption: @page_header, url: '#' }].compact unless block_given?
+    default_menu = {menu: [(index_page unless action_name == 'index'),
+                    {caption: @page_header, url: '#' }].compact} unless block_given?
+    breadcrumbs_block = block_given? ? yield : {}       
+    switcher = (breadcrumb_switchable? || breadcrumbs_block[:switchable]) ? { switcherItemUrl: switcher_url_template,
+                                                                  reosurceUrl: "/api/v2/#{controller_name}?thin=true",
+                                                                  name: controller_name.camelize.singularize.constantize.try(:title_name) || 'name',
+                                                                  swichable: breadcrumb_switchable? || breadcrumbs_block[:switchable] } : {}         
     mount_react_component("BreadcrumbBar", "#breadcrumb",
-      { menu: default_menu || yield, resource: controller_name, action: action_name,
-        reosurceUrl: "/api/v2/#{controller_name}?thin=true", name: controller_name.capitalize.singularize.constantize.try(:title_name) || 'name'
-      }.to_json)
+      switcher.merge(default_menu || breadcrumbs_block).to_json)
   end
 
   def breadcrumbs(&block)
@@ -180,5 +183,13 @@ module LayoutHelper
 
   def table_css_classes(classes = '')
     "table table-bordered table-striped table-hover " + classes
+  end
+
+  def breadcrumb_switchable?
+    ['edit', 'show'].include? action_name
+  end
+
+  def switcher_url_template
+    "/#{controller_name}/:id/#{action_name == 'show' ? '' : action_name}"
   end
 end
