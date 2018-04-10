@@ -45,6 +45,7 @@ class BreadcrumbBar extends React.Component {
               onTogglerClick={() => toggleSwitcher()}
               onHide={() => closeSwitcher()}
               onOpen={() => this.handleOpen()}
+              onResourceClick={() => closeSwitcher()}
               onNextPageClick={() =>
                 loadSwitcherResourcesByResource(resource, { page: Number(currentPage) + 1 })
               }

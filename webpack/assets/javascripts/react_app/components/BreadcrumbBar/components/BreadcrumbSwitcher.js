@@ -27,6 +27,7 @@ class BreadcrumbSwitcher extends React.Component {
       resources,
       onTogglerClick,
       onHide,
+      onResourceClick,
       onNextPageClick,
       onPrevPageClick,
     } = this.props;
@@ -54,6 +55,7 @@ class BreadcrumbSwitcher extends React.Component {
             loading={isLoadingResources}
             hasError={hasError}
             resources={resources}
+            onResourceClick={onResourceClick}
             onNextPageClick={onNextPageClick}
             onPrevPageClick={onPrevPageClick}
             currentPage={currentPage}
@@ -75,6 +77,7 @@ BreadcrumbSwitcher.propTypes = {
   onTogglerClick: PropTypes.func,
   onHide: PropTypes.func,
   onOpen: PropTypes.func,
+  onResourceClick: PropTypes.func,
   onPrevPageClick: PropTypes.func,
   onNextPageClick: PropTypes.func,
 };
@@ -89,6 +92,7 @@ BreadcrumbSwitcher.defaultProps = {
   onTogglerClick: noop,
   onHide: noop,
   onOpen: noop,
+  onResourceClick: noop,
   onPrevPageClick: noop,
   onNextPageClick: noop,
 };
