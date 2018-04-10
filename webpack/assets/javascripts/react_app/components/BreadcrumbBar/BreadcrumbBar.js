@@ -11,9 +11,12 @@ class BreadcrumbBar extends React.Component {
       data: { resource },
       loadSwitcherResourcesByResource,
       currentPage,
+      resourceUrl,
     } = this.props;
 
-    if (!currentPage) loadSwitcherResourcesByResource(resource);
+    if (!currentPage || resourceUrl !== resource.resourceUrl) {
+      loadSwitcherResourcesByResource(resource);
+    }
   }
 
   render() {
@@ -74,6 +77,7 @@ BreadcrumbBar.propTypes = {
   currentPage: PropTypes.number,
   totalPages: PropTypes.number,
   resourceSwitcherItems: BreadcrumbSwitcher.propTypes.resources,
+  resourceUrl: PropTypes.string,
   isLoadingResources: PropTypes.bool,
   hasError: PropTypes.bool,
   isSwitcherOpen: PropTypes.bool,
@@ -90,6 +94,7 @@ BreadcrumbBar.defaultProps = {
   currentPage: null,
   totalPages: 1,
   resourceSwitcherItems: [],
+  resourceUrl: null,
   isLoadingResources: false,
   hasError: false,
   isSwitcherOpen: false,

@@ -25,11 +25,15 @@ export const resource = {
 };
 
 export const resourceList = [
-  { name: 'Host 1', url: '#' },
-  { name: 'Host 2', url: '#' },
-  { name: 'Host 3 with a very long name', url: '#' },
-  { name: 'Host 4', url: undefined, onClick: jest.fn() },
-  { name: 'Host 5', url: '#', onClick: undefined },
+  { id: '1', name: 'Host 1', url: '#' },
+  { id: '2', name: 'Host 2', url: '#' },
+  { id: '3', name: 'Host 3 with a very long name', url: '#' },
+  {
+    id: '4', name: 'Host 4', url: undefined, onClick: jest.fn(),
+  },
+  {
+    id: '5', name: 'Host 5', url: '#', onClick: undefined,
+  },
 ];
 
 export const serverResourceListResponse = {

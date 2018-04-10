@@ -37,8 +37,10 @@ exports[`BreadcrumbSwitcherPopover render resources list 1`] = `
         bsClass="list-group-item"
         className="no-border"
         href="#"
-        key="id-Host 1"
+        id="1-Host 1"
+        key="1-Host 1"
         listItem={false}
+        onClick={[Function]}
       >
         <EllipisWithTooltip>
           Host 1
@@ -49,8 +51,10 @@ exports[`BreadcrumbSwitcherPopover render resources list 1`] = `
         bsClass="list-group-item"
         className="no-border"
         href="#"
-        key="id-Host 2"
+        id="2-Host 2"
+        key="2-Host 2"
         listItem={false}
+        onClick={[Function]}
       >
         <EllipisWithTooltip>
           Host 2
@@ -61,8 +65,10 @@ exports[`BreadcrumbSwitcherPopover render resources list 1`] = `
         bsClass="list-group-item"
         className="no-border"
         href="#"
-        key="id-Host 3 with a very long name"
+        id="3-Host 3 with a very long name"
+        key="3-Host 3 with a very long name"
         listItem={false}
+        onClick={[Function]}
       >
         <EllipisWithTooltip>
           Host 3 with a very long name
@@ -72,7 +78,8 @@ exports[`BreadcrumbSwitcherPopover render resources list 1`] = `
         active={false}
         bsClass="list-group-item"
         className="no-border"
-        key="id-Host 4"
+        id="4-Host 4"
+        key="4-Host 4"
         listItem={false}
         onClick={[Function]}
       >
@@ -85,8 +92,10 @@ exports[`BreadcrumbSwitcherPopover render resources list 1`] = `
         bsClass="list-group-item"
         className="no-border"
         href="#"
-        key="id-Host 5"
+        id="5-Host 5"
+        key="5-Host 5"
         listItem={false}
+        onClick={[Function]}
       >
         <EllipisWithTooltip>
           Host 5
@@ -128,8 +137,10 @@ exports[`BreadcrumbSwitcherPopover render resources list with pagination 1`] = `
         bsClass="list-group-item"
         className="no-border"
         href="#"
-        key="id-Host 1"
+        id="1-Host 1"
+        key="1-Host 1"
         listItem={false}
+        onClick={[Function]}
       >
         <EllipisWithTooltip>
           Host 1
@@ -140,8 +151,10 @@ exports[`BreadcrumbSwitcherPopover render resources list with pagination 1`] = `
         bsClass="list-group-item"
         className="no-border"
         href="#"
-        key="id-Host 2"
+        id="2-Host 2"
+        key="2-Host 2"
         listItem={false}
+        onClick={[Function]}
       >
         <EllipisWithTooltip>
           Host 2
@@ -152,8 +165,10 @@ exports[`BreadcrumbSwitcherPopover render resources list with pagination 1`] = `
         bsClass="list-group-item"
         className="no-border"
         href="#"
-        key="id-Host 3 with a very long name"
+        id="3-Host 3 with a very long name"
+        key="3-Host 3 with a very long name"
         listItem={false}
+        onClick={[Function]}
       >
         <EllipisWithTooltip>
           Host 3 with a very long name
@@ -163,7 +178,8 @@ exports[`BreadcrumbSwitcherPopover render resources list with pagination 1`] = `
         active={false}
         bsClass="list-group-item"
         className="no-border"
-        key="id-Host 4"
+        id="4-Host 4"
+        key="4-Host 4"
         listItem={false}
         onClick={[Function]}
       >
@@ -176,8 +192,10 @@ exports[`BreadcrumbSwitcherPopover render resources list with pagination 1`] = `
         bsClass="list-group-item"
         className="no-border"
         href="#"
-        key="id-Host 5"
+        id="5-Host 5"
+        key="5-Host 5"
         listItem={false}
+        onClick={[Function]}
       >
         <EllipisWithTooltip>
           Host 5

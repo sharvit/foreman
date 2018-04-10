@@ -12,18 +12,17 @@ Array [
     Object {
       "payload": Object {
         "options": Object {},
-        "resource": Object {
-          "nameField": "name",
-          "resourceUrl": "some/url",
-          "switcherItemUrl": "some/url/:id",
-        },
+        "resourceUrl": "some/url",
       },
       "type": "BREADCRUMB_BAR_RESOURCES_REQUEST",
     },
   ],
   Array [
     Object {
-      "payload": [Error: some-error],
+      "payload": Object {
+        "error": [Error: some-error],
+        "resourceUrl": "some/url",
+      },
       "type": "BREADCRUMB_BAR_RESOURCES_FAILURE",
     },
   ],
@@ -36,11 +35,7 @@ Array [
     Object {
       "payload": Object {
         "options": Object {},
-        "resource": Object {
-          "nameField": "name",
-          "resourceUrl": "some/url",
-          "switcherItemUrl": "some/url/:id",
-        },
+        "resourceUrl": "some/url",
       },
       "type": "BREADCRUMB_BAR_RESOURCES_REQUEST",
     },
@@ -50,20 +45,24 @@ Array [
       "payload": Object {
         "items": Array [
           Object {
+            "id": "1",
             "name": "name-1",
             "url": "some/url/1",
           },
           Object {
+            "id": "2",
             "name": "name-2",
             "url": "some/url/2",
           },
           Object {
+            "id": "3",
             "name": "name-3",
             "url": "some/url/3",
           },
         ],
         "page": 1,
         "pages": 1.5,
+        "resourceUrl": "some/url",
       },
       "type": "BREADCRUMB_BAR_RESOURCES_SUCCESS",
     },

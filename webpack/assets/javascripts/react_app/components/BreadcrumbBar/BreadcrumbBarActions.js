@@ -24,18 +24,22 @@ export const loadSwitcherResourcesByResource = (resource, options = {}) => (disp
   const beforeRequest = () =>
     dispatch({
       type: BREADCRUMB_BAR_RESOURCES_REQUEST,
-      payload: { resource, options },
+      payload: { resourceUrl, options },
     });
 
   const onRequestSuccess = response =>
-    dispatch({ type: BREADCRUMB_BAR_RESOURCES_SUCCESS, payload: formatResults(response) });
+    dispatch({
+      type: BREADCRUMB_BAR_RESOURCES_SUCCESS,
+      payload: { ...formatResults(response), resourceUrl },
+    });
 
   const onRequestFail = error =>
-    dispatch({ type: BREADCRUMB_BAR_RESOURCES_FAILURE, payload: error });
+    dispatch({ type: BREADCRUMB_BAR_RESOURCES_FAILURE, payload: { error, resourceUrl } });
 
   const formatResults = ({ data }) => {
     const switcherItems = flatten(Object.values(data.results)).map(result =>
       ({ name: result[nameField], id: result.id, url: switcherItemUrl.replace(':id', result.id) }));
+
     return {
       items: switcherItems,
       page: data.page,

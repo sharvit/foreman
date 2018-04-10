@@ -8,6 +8,7 @@ Object {
   "pages": null,
   "requestError": null,
   "resourceSwitcherItems": Array [],
+  "resourceUrl": null,
 }
 `;
 
@@ -19,6 +20,7 @@ Object {
   "pages": null,
   "requestError": Object {},
   "resourceSwitcherItems": Array [],
+  "resourceUrl": "some/url",
 }
 `;
 
@@ -30,6 +32,7 @@ Object {
   "pages": null,
   "requestError": null,
   "resourceSwitcherItems": Array [],
+  "resourceUrl": "some/url",
 }
 `;
 
@@ -42,28 +45,34 @@ Object {
   "requestError": null,
   "resourceSwitcherItems": Array [
     Object {
+      "id": "1",
       "name": "Host 1",
       "url": "#",
     },
     Object {
+      "id": "2",
       "name": "Host 2",
       "url": "#",
     },
     Object {
+      "id": "3",
       "name": "Host 3 with a very long name",
       "url": "#",
     },
     Object {
+      "id": "4",
       "name": "Host 4",
       "onClick": [Function],
       "url": undefined,
     },
     Object {
+      "id": "5",
       "name": "Host 5",
       "onClick": undefined,
       "url": "#",
     },
   ],
+  "resourceUrl": "some/url",
 }
 `;
 
@@ -75,6 +84,7 @@ Object {
   "pages": null,
   "requestError": null,
   "resourceSwitcherItems": Array [],
+  "resourceUrl": null,
 }
 `;
 
@@ -86,5 +96,6 @@ Object {
   "pages": null,
   "requestError": null,
   "resourceSwitcherItems": Array [],
+  "resourceUrl": null,
 }
 `;

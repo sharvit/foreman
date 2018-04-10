@@ -52,6 +52,7 @@ exports[`BreadcrumbBar rendering renders switchable breadcrumb-bar 1`] = `
       onNextPageClick={[Function]}
       onOpen={[Function]}
       onPrevPageClick={[Function]}
+      onResourceClick={[Function]}
       onTogglerClick={[Function]}
       open={false}
       resources={Array []}

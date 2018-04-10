@@ -92,6 +92,7 @@ BreadcrumbSwitcherPopover.propTypes = {
   totalPages: PropTypes.number,
   onResourceClick: PropTypes.func,
   resources: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     href: PropTypes.string,
     onClick: PropTypes.func,

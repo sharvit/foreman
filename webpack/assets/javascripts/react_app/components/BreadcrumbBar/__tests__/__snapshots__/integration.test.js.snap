@@ -9,6 +9,7 @@ Object {
     "pages": null,
     "requestError": null,
     "resourceSwitcherItems": Array [],
+    "resourceUrl": null,
   },
 }
 `;
@@ -21,20 +22,24 @@ Object {
         "payload": Object {
           "items": Array [
             Object {
+              "id": "1",
               "name": "name-1",
               "url": "some/url/1",
             },
             Object {
+              "id": "2",
               "name": "name-2",
               "url": "some/url/2",
             },
             Object {
+              "id": "3",
               "name": "name-3",
               "url": "some/url/3",
             },
           ],
           "page": 2,
           "pages": 1.5,
+          "resourceUrl": "some/url",
         },
         "type": "BREADCRUMB_BAR_RESOURCES_SUCCESS",
       },
@@ -49,18 +54,22 @@ Object {
       "requestError": null,
       "resourceSwitcherItems": Array [
         Object {
+          "id": "1",
           "name": "name-1",
           "url": "some/url/1",
         },
         Object {
+          "id": "2",
           "name": "name-2",
           "url": "some/url/2",
         },
         Object {
+          "id": "3",
           "name": "name-3",
           "url": "some/url/3",
         },
       ],
+      "resourceUrl": "some/url",
     },
   },
 }
@@ -74,20 +83,24 @@ Object {
         "payload": Object {
           "items": Array [
             Object {
+              "id": "1",
               "name": "name-1",
               "url": "some/url/1",
             },
             Object {
+              "id": "2",
               "name": "name-2",
               "url": "some/url/2",
             },
             Object {
+              "id": "3",
               "name": "name-3",
               "url": "some/url/3",
             },
           ],
           "page": 1,
           "pages": 1.5,
+          "resourceUrl": "some/url",
         },
         "type": "BREADCRUMB_BAR_RESOURCES_SUCCESS",
       },
@@ -102,18 +115,22 @@ Object {
       "requestError": null,
       "resourceSwitcherItems": Array [
         Object {
+          "id": "1",
           "name": "name-1",
           "url": "some/url/1",
         },
         Object {
+          "id": "2",
           "name": "name-2",
           "url": "some/url/2",
         },
         Object {
+          "id": "3",
           "name": "name-3",
           "url": "some/url/3",
         },
       ],
+      "resourceUrl": "some/url",
     },
   },
 }
@@ -137,18 +154,22 @@ Object {
       "requestError": null,
       "resourceSwitcherItems": Array [
         Object {
+          "id": "1",
           "name": "name-1",
           "url": "some/url/1",
         },
         Object {
+          "id": "2",
           "name": "name-2",
           "url": "some/url/2",
         },
         Object {
+          "id": "3",
           "name": "name-3",
           "url": "some/url/3",
         },
       ],
+      "resourceUrl": "some/url",
     },
   },
 }
@@ -161,11 +182,7 @@ Object {
       Object {
         "payload": Object {
           "options": Object {},
-          "resource": Object {
-            "nameField": "name",
-            "resourceUrl": "some/url",
-            "switcherItemUrl": "some/url/:id",
-          },
+          "resourceUrl": "some/url",
         },
         "type": "BREADCRUMB_BAR_RESOURCES_REQUEST",
       },
@@ -179,6 +196,7 @@ Object {
       "pages": null,
       "requestError": null,
       "resourceSwitcherItems": Array [],
+      "resourceUrl": "some/url",
     },
   },
 }
@@ -192,20 +210,24 @@ Object {
         "payload": Object {
           "items": Array [
             Object {
+              "id": "1",
               "name": "name-1",
               "url": "some/url/1",
             },
             Object {
+              "id": "2",
               "name": "name-2",
               "url": "some/url/2",
             },
             Object {
+              "id": "3",
               "name": "name-3",
               "url": "some/url/3",
             },
           ],
           "page": 1,
           "pages": 1.5,
+          "resourceUrl": "some/url",
         },
         "type": "BREADCRUMB_BAR_RESOURCES_SUCCESS",
       },
@@ -220,18 +242,22 @@ Object {
       "requestError": null,
       "resourceSwitcherItems": Array [
         Object {
+          "id": "1",
           "name": "name-1",
           "url": "some/url/1",
         },
         Object {
+          "id": "2",
           "name": "name-2",
           "url": "some/url/2",
         },
         Object {
+          "id": "3",
           "name": "name-3",
           "url": "some/url/3",
         },
       ],
+      "resourceUrl": "some/url",
     },
   },
 }

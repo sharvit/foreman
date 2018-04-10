@@ -25,7 +25,7 @@ const fixtures = {
     action: {
       type: BREADCRUMB_BAR_RESOURCES_REQUEST,
       payload: {
-        resource: { ...resource },
+        resourceUrl: resource.resourceUrl,
         options: {},
       },
     },
@@ -33,13 +33,15 @@ const fixtures = {
   'should handle BREADCRUMB_BAR_RESOURCES_SUCCESS': {
     action: {
       type: BREADCRUMB_BAR_RESOURCES_SUCCESS,
-      payload: { items: [...resourceList], page: 1, pages: 2 },
+      payload: {
+        items: [...resourceList], page: 1, pages: 2, resourceUrl: resource.resourceUrl,
+      },
     },
   },
   'should handle BREADCRUMB_BAR_RESOURCES_FAILURE': {
     action: {
       type: BREADCRUMB_BAR_RESOURCES_FAILURE,
-      payload: new Error('some error'),
+      payload: { error: new Error('some error'), resourceUrl: resource.resourceUrl },
     },
   },
 };
