@@ -17,7 +17,7 @@ Object {
   "isLoadingResources": false,
   "isSwitcherOpen": false,
   "pages": null,
-  "requestError": [Error: some error],
+  "requestError": Object {},
   "resourceSwitcherItems": Array [],
 }
 `;

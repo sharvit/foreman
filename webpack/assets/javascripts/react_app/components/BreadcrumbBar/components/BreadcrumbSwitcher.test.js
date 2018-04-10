@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { testComponentSnapshotsWithFixtures } from '../../../common/testHelpers';
+import toJson from 'enzyme-to-json';
+import { shallowRenderComponentWithFixtures } from '../../../common/testHelpers';
 
 import BreadcrumbSwitcher from './BreadcrumbSwitcher';
 import {
@@ -29,7 +30,22 @@ const fixtures = {
 };
 
 describe('BreadcrumbSwitcher', () => {
-  describe('rendering', () => testComponentSnapshotsWithFixtures(BreadcrumbSwitcher, fixtures));
+  describe('rendering', () => {
+    const components = shallowRenderComponentWithFixtures(BreadcrumbSwitcher, fixtures);
+
+    const filterSnapshotGarbage = (componentJson) => {
+      const componentOverlay = componentJson.children.filter(({ type }) => type === 'Overlay')[0];
+      delete componentOverlay.props.container;
+      return componentJson;
+    };
+
+    const testBreadcrumbSwitcherSnapshot = (description, component) =>
+      it(description, () =>
+        expect(filterSnapshotGarbage(toJson(component))).toMatchSnapshot());
+
+    components.forEach(({ description, component }) =>
+      testBreadcrumbSwitcherSnapshot(description, component));
+  });
 
   describe('triggering', () => {
     it('should correctly trigger onOpen', () => {

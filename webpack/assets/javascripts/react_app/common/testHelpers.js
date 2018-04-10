@@ -36,14 +36,23 @@ export const classFunctionUnitTest = (obj, func, objThis, args) =>
   obj.prototype[func].apply(objThis, args);
 
 /**
+ * Shallow render a component multipile times with fixtures
+ * @param  {ReactComponent} Component Component to shallow-render
+ * @param  {Object}         fixtures  key=fixture description, value=props to apply
+ * @return {Object}                   key=fixture description, value=shallow-rendered component
+ */
+export const shallowRenderComponentWithFixtures = (Component, fixtures) =>
+  Object.entries(fixtures).map(([description, props]) => ({
+    description,
+    component: shallow(<Component {...props} />),
+  }));
+
+/**
  * Test a component with fixtures and snapshots
  * @param  {ReactComponent} Component Component to test
  * @param  {Object}         fixtures  key=fixture description, value=props to apply
  */
-export const testComponentSnapshotsWithFixtures = (Component, fixtures) => {
-  Object.entries(fixtures).forEach(([description, props]) =>
-    it(description, () => {
-      const wrapper = shallow(<Component {...props} />);
-      expect(toJson(wrapper)).toMatchSnapshot();
-    }));
-};
+export const testComponentSnapshotsWithFixtures = (Component, fixtures) =>
+  shallowRenderComponentWithFixtures(Component, fixtures)
+    .forEach(({ description, component }) =>
+      it(description, () => expect(toJson(component)).toMatchSnapshot()));
