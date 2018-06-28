@@ -10,6 +10,7 @@ import PasswordStrength from './PasswordStrength';
 import BreadcrumbBar from './BreadcrumbBar';
 import FactChart from './factCharts';
 import SearchBar from './SearchBar';
+import ModelsTable from './ModelsTable';
 import Layout from './Layout';
 
 const componentRegistry = {
@@ -69,6 +70,7 @@ const coreComponets = [
   { name: 'BreadcrumbBar', type: BreadcrumbBar },
   { name: 'FactChart', type: FactChart },
   { name: 'SearchBar', type: SearchBar },
+  { name: 'ModelsTable', type: ModelsTable },
   { name: 'Layout', type: Layout },
 ];
 

@@ -9,6 +9,7 @@ import factChart from './factCharts';
 import { reducers as passwordStrengthReducers } from '../../components/PasswordStrength';
 import { reducers as breadcrumbBarReducers } from '../../components/BreadcrumbBar';
 import { reducers as searchBarReducers } from '../../components/SearchBar';
+import { reducers as modelsReducers } from '../../components/ModelsTable';
 import { reducers as layoutReducers } from '../../components/Layout';
 
 export function combineReducersAsync(asyncReducers) {
@@ -22,6 +23,7 @@ export function combineReducersAsync(asyncReducers) {
     factChart,
     ...passwordStrengthReducers,
     ...breadcrumbBarReducers,
+    ...modelsReducers,
     ...layoutReducers,
     ...searchBarReducers,
     ...asyncReducers,

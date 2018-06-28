@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModelsTable reducer should handle HW_MODEL_TABLE_FAILURE 1`] = `
+Object {
+  "error": [Error: ooops!],
+  "page": "1",
+  "perPage": "20",
+  "results": Array [],
+  "searchQuery": null,
+  "sortBy": "",
+  "sortOrder": "",
+  "status": "ERROR",
+}
+`;
+
+exports[`ModelsTable reducer should handle HW_MODEL_TABLE_REQUEST 1`] = `
+Object {
+  "error": null,
+  "page": "1",
+  "perPage": "20",
+  "results": Array [],
+  "searchQuery": null,
+  "sortBy": "",
+  "sortOrder": "",
+  "status": "PENDING",
+}
+`;
+
+exports[`ModelsTable reducer should handle HW_MODEL_TABLE_SUCCESS 1`] = `
+Object {
+  "error": null,
+  "page": 1,
+  "perPage": 5,
+  "results": Array [
+    Object {
+      "id": 23,
+      "name": "model",
+    },
+  ],
+  "searchQuery": "name=model",
+  "sortBy": "name",
+  "sortOrder": "ASC",
+  "status": "RESOLVED",
+}
+`;
+
+exports[`ModelsTable reducer should handle INIT_TABLE 1`] = `
+Object {
+  "error": null,
+  "page": "3",
+  "perPage": "5",
+  "results": Array [],
+  "searchQuery": "name=modelName1",
+  "sortBy": "vendor_class",
+  "sortOrder": "ASC",
+  "status": "RESOLVED",
+}
+`;
+
+exports[`ModelsTable reducer should handle TABLE_FAILURE 1`] = `
+Object {
+  "error": [Error: ooops!],
+  "page": "1",
+  "perPage": "20",
+  "results": Array [],
+  "searchQuery": null,
+  "sortBy": "",
+  "sortOrder": "",
+  "status": "ERROR",
+}
+`;
+
+exports[`ModelsTable reducer should handle TABLE_REQUEST 1`] = `
+Object {
+  "error": null,
+  "page": "1",
+  "perPage": "20",
+  "results": Array [],
+  "searchQuery": null,
+  "sortBy": "",
+  "sortOrder": "",
+  "status": "PENDING",
+}
+`;
+
+exports[`ModelsTable reducer should handle TABLE_SUCCESS 1`] = `
+Object {
+  "error": null,
+  "page": 1,
+  "perPage": 5,
+  "results": Array [
+    Object {
+      "id": 23,
+      "name": "model",
+    },
+  ],
+  "searchQuery": "name=model",
+  "sortBy": "name",
+  "sortOrder": "ASC",
+  "status": "RESOLVED",
+}
+`;
+
+exports[`ModelsTable reducer should return initial state 1`] = `
+Object {
+  "error": null,
+  "page": "1",
+  "perPage": "20",
+  "results": Array [],
+  "searchQuery": null,
+  "sortBy": "",
+  "sortOrder": "",
+  "status": "PENDING",
+}
+`;

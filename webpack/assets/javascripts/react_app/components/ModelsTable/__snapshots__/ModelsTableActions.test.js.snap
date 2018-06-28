@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModelsTableActions updateSearch should dispatch INIT_TABLE 1`] = `
+Object {
+  "payload": Object {
+    "results": Array [],
+  },
+  "type": "TABLE_INIT",
+}
+`;
+
+exports[`ModelsTableActions updateSearch should dispatch INIT_TABLE 2`] = `
+Object {
+  "payload": Object {
+    "page": "3",
+    "results": Array [],
+  },
+  "type": "TABLE_INIT",
+}
+`;
+
+exports[`ModelsTableActions updateSearch should dispatch INIT_TABLE 3`] = `
+Object {
+  "payload": Object {
+    "perPage": "5",
+    "results": Array [],
+  },
+  "type": "TABLE_INIT",
+}
+`;
+
+exports[`ModelsTableActions updateSearch should dispatch INIT_TABLE 4`] = `
+Object {
+  "payload": Object {
+    "results": Array [],
+    "searchQuery": "name = \\"model name 1\\"",
+  },
+  "type": "TABLE_INIT",
+}
+`;
+
+exports[`ModelsTableActions updateSearch should dispatch INIT_TABLE 5`] = `
+Object {
+  "payload": Object {
+    "results": Array [],
+  },
+  "type": "TABLE_INIT",
+}
+`;
+
+exports[`ModelsTableActions updateSearch should dispatch INIT_TABLE 6`] = `
+Object {
+  "payload": Object {
+    "results": Array [],
+  },
+  "type": "TABLE_INIT",
+}
+`;
+
+exports[`ModelsTableActions updateSearch should dispatch INIT_TABLE 7`] = `
+Object {
+  "payload": Object {
+    "results": Array [],
+  },
+  "type": "TABLE_INIT",
+}
+`;
+
+exports[`ModelsTableActions updateSearch should dispatch INIT_TABLE 8`] = `
+Object {
+  "payload": Object {
+    "results": Array [],
+  },
+  "type": "TABLE_INIT",
+}
+`;
+
+exports[`ModelsTableActions updateSearch should dispatch INIT_TABLE 9`] = `
+Object {
+  "payload": Object {
+    "results": Array [
+      Object {
+        "name": "model-1",
+        "vendor_class": "vc1",
+      },
+    ],
+  },
+  "type": "TABLE_INIT",
+}
+`;

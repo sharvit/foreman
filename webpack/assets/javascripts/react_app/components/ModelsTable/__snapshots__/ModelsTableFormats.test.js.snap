@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModelsTableFormats does not format any action button if not authorized 1`] = `null`;
+
+exports[`ModelsTableFormats formats a delete action button if authorized 1`] = `
+<span
+  className="btn btn-sm btn-default"
+>
+  <a
+    data-confirm="Delete model13"
+    data-id="aid_models_13-model13"
+    data-method="delete"
+    href="/models/13-model13"
+    rel="nofollow"
+  >
+    Delete
+  </a>
+</span>
+`;
+
+exports[`ModelsTableFormats formats disabled model name if not authorized 1`] = `
+<a
+  className="disabled"
+  disabled="disabled"
+  href="#"
+  onClick={[Function]}
+>
+  model no 1
+</a>
+`;
+
+exports[`ModelsTableFormats formats hosts count 1`] = `
+<a
+  href="hosts?search=model+%3D+\\"model1\\""
+>
+  5
+</a>
+`;
+
+exports[`ModelsTableFormats formats link to model edit page if authorized 1`] = `
+<a
+  data-id="aid_models_1-model%20no%201_edit"
+  href="models/1-model%20no%201/edit"
+>
+  model no 1
+</a>
+`;
+
+exports[`ModelsTableFormats formats sortable header ascending 1`] = `
+<a
+  className="sorting_asc sort sort-asc"
+  onClick={[Function]}
+>
+  name
+</a>
+`;
+
+exports[`ModelsTableFormats formats sortable header descending 1`] = `
+<a
+  className="sorting_desc sort sort-desc"
+  onClick={[Function]}
+>
+  name
+</a>
+`;
+
+exports[`ModelsTableFormats formats sortable header that is not sorted 1`] = `
+<a
+  className="sorting sort sort-none"
+  onClick={[Function]}
+>
+  name
+</a>
+`;
+
+exports[`sortUrl 1`] = `"api/models?order=name+DESC"`;
+
+exports[`sortUrl 2`] = `"api/models?order=vendor_class+ASC"`;
+
+exports[`sortUrl 3`] = `"api/models?page=2&order=name+DESC"`;
+
+exports[`sortUrl 4`] = `"api/models?page=1&order=hardware_model+ASC"`;
