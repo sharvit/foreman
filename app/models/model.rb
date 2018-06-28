@@ -18,4 +18,8 @@ class Model < ApplicationRecord
   scoped_search :on => :info
   scoped_search :on => :vendor_class, :complete_value => :true
   scoped_search :on => :hardware_model, :complete_value => :true
+
+  def hosts_count
+    Host::Managed.select(:id).where(:model_id => self.id).count
+  end
 end
