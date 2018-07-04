@@ -10,4 +10,8 @@ class AuditJSTest < IntegrationTestWithJavascript
     assert has_content?('-old')
     assert has_content?('+new')
   end
+
+  test "index page" do
+    assert_index_page(audits_path, "Audits", nil, true)
+  end
 end

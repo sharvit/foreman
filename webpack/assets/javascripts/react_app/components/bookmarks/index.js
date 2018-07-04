@@ -27,7 +27,7 @@ class BookmarkContainer extends React.Component {
     if (this.props.showModal) {
       this.props.modalClosed();
     } else {
-      this.props.modalOpened();
+      this.props.modalOpened(this.props.searchQuery);
     }
   }
 
@@ -82,11 +82,12 @@ class BookmarkContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ bookmarks }, { data: { controller } }) => ({
+const mapStateToProps = ({ bookmarks }, { data: { controller, searchQuery } }) => ({
   errors: bookmarks[controller] && bookmarks[controller].errors,
   bookmarks: (bookmarks[controller] && bookmarks[controller].results) || [],
   status: bookmarks[controller] && bookmarks[controller].status,
   showModal: bookmarks.showModal,
+  searchQuery,
 });
 
 // I'm flatting the props that come from data attribute, this is done to avoid

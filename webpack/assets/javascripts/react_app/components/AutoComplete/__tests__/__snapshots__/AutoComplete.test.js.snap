@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoComplete rendering renders AutoComplete 1`] = `
+<div>
+  <OnClickOutside(TypeaheadContainer(WrappedTypeahead))
+    defaultInputValue=""
+    emptyLabel={null}
+    eventTypes={
+      Array [
+        "mousedown",
+        "touchstart",
+      ]
+    }
+    excludeScrollbar={false}
+    inputProps={
+      Object {
+        "id": "search",
+        "spellCheck": "false",
+      }
+    }
+    isLoading={false}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onInputChange={[Function]}
+    options={
+      Array [
+        Object {
+          "category": "category",
+          "label": "some results",
+        },
+      ]
+    }
+    outsideClickIgnoreClass="ignore-react-onclickoutside"
+    placeholder="Filter ..."
+    preventDefault={false}
+    renderMenu={[Function]}
+    stopPropagation={false}
+  />
+  <AutoCompleteFocusShortcut />
+  <AutoCompleteClearButton
+    onClear={[Function]}
+  />
+  <AutoCompleteError />
+</div>
+`;
