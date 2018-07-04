@@ -1,0 +1,38 @@
+@import '~patternfly/dist/sass/patternfly/_color-variables.scss';
+@import '~patternfly-react/dist/sass/_type-ahead-select.scss';
+
+#search-bar {
+  .autocomplete-clear-button {
+    position: absolute;
+    top: 7px;
+    font-size: 12px;
+    right: 112px;
+    color: $color-pf-black-600;
+    z-index: 10;
+
+    &:hover {
+      color: $color-pf-blue-500;
+      text-decoration: none;
+    }
+
+    // Keeps in position when screen size is xs and search button shrinks.
+    @media screen and (max-width: 767px) {
+      right: 68px;
+    }
+  }
+}
+
+// The span that contains the loading spinner should move left
+// to avoid being override by the clear button.
+.rbt-aux {
+  right: 15px;
+  z-index: 10;
+}
+
+.rbt-menu {
+  width: -webkit-fill-available;
+}
+
+.autocomplete-search-btn-text {
+  display: inline;
+}
