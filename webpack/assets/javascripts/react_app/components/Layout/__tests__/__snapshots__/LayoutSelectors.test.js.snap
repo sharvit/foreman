@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout Selectors should return PF-React Compatible items 1`] = `
+Array [
+  Object {
+    "className": "",
+    "iconClass": "fa fa-tachometer",
+    "initialActive": false,
+    "subItems": Array [
+      Object {
+        "className": "",
+        "isDivider": false,
+        "onClick": [Function],
+        "title": "Dashboard",
+      },
+      Object {
+        "className": "",
+        "isDivider": false,
+        "onClick": [Function],
+        "title": "Facts",
+      },
+    ],
+    "title": "Monitor",
+  },
+  Object {
+    "className": "",
+    "iconClass": "fa fa-server",
+    "initialActive": false,
+    "subItems": Array [
+      Object {
+        "className": "",
+        "isDivider": false,
+        "onClick": [Function],
+        "title": "All Hosts",
+      },
+      Object {
+        "className": "",
+        "isDivider": false,
+        "onClick": [Function],
+        "title": "Architectures",
+      },
+    ],
+    "title": "Hosts",
+  },
+  Object {
+    "className": "visible-xs-block",
+    "iconClass": "fa fa-wrench",
+    "initialActive": false,
+    "subItems": Array [
+      Object {
+        "className": "",
+        "isDivider": false,
+        "onClick": [Function],
+        "title": "Environments",
+      },
+      Object {
+        "className": "",
+        "isDivider": false,
+        "onClick": [Function],
+        "title": "Architectures",
+      },
+    ],
+    "title": "User",
+  },
+  Object {
+    "className": "",
+    "iconClass": "pficon pficon-network",
+    "initialActive": false,
+    "subItems": Array [
+      Object {
+        "className": "",
+        "isDivider": false,
+        "onClick": [Function],
+        "title": "Domains",
+      },
+      Object {
+        "className": "",
+        "isDivider": false,
+        "onClick": [Function],
+        "title": "Realms",
+      },
+    ],
+    "title": "Infrastructure",
+  },
+]
+`;
+
+exports[`Layout Selectors should return empty array 1`] = `Array []`;

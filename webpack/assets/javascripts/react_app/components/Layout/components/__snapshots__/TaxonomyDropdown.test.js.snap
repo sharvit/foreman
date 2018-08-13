@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaxonomyDropdown rendering render TaxonomyDropdown 1`] = `
+<NavItem
+  activeHref=""
+  activeKey=""
+  className="dropdown org-switcher"
+  id="organization-dropdown"
+>
+  <a
+    className="dropdown-toggle nav-item-iconic"
+    data-toggle="dropdown"
+    href="#"
+  >
+    org1
+    <span
+      className="caret"
+    />
+  </a>
+  <ul
+    className="dropdown-menu"
+  >
+    <li
+      className="dropdown-header"
+    >
+      Organization
+    </li>
+    <li>
+      <a
+        className="organizations_clear"
+        onClick={[Function]}
+      >
+        Any Organization
+      </a>
+    </li>
+    <li>
+      <a
+        className="organization"
+        href="/organizations"
+      >
+        Manage Organizations
+      </a>
+    </li>
+    <li
+      className="divider"
+    />
+    <li
+      key="0"
+    >
+      <a
+        className="organization_menuitem"
+        id="aid_taxonomy_org1"
+        onClick={[Function]}
+      >
+        org1
+      </a>
+    </li>
+  </ul>
+</NavItem>
+`;
