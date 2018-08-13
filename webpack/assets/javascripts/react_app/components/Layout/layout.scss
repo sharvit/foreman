@@ -1,0 +1,85 @@
+@import "../../common/colors.scss";
+
+.nav-pf-secondary-nav {
+  background-color: $vertical-nav-highlight !important;
+
+  .mobile-active {
+    // Mark active Location/Org in Mobile view
+    a {
+      .list-group-item-value {
+        background-color: $vertical-nav-background !important;
+      }
+    }
+  }
+
+  .list-group-item {
+    a {
+      background-color: $vertical-nav-highlight !important;
+
+      &:hover {
+        .list-group-item-value {
+          background-color: $vertical-nav-background !important;
+        }
+      }
+    }
+
+    span {
+      color: $pf-color-white !important;
+    }
+  }
+}
+
+.nav-pf-vertical {
+  background-color: $vertical-nav-background !important;
+
+  .list-group {
+    .list-group-item {
+      a {
+        span {
+          color: $vertical-nav-list-highlight;
+        }
+
+        &:hover {
+          background-color: $vertical-nav-highlight;
+
+          span {
+            color: $pf-color-white;
+          }
+        }
+
+        &::after {
+          color: $vertical-nav-list-highlight;
+        }
+      }
+
+      &:hover {
+        a {
+          background-color: $vertical-nav-highlight !important;
+
+          span {
+            color: $pf-color-white;
+          }
+        }
+      }
+
+      &.active {
+        a {
+          background-color: $vertical-nav-highlight;
+
+          span {
+            color: $pf-color-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+#vertical-spinner {
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+.navbar-header {
+  width: 221.22px;
+}
