@@ -34,10 +34,11 @@ const patternflyItems = (data, activePath, activeMenu, currentLocation, currentO
       }
 
       const childObject = {
+        url: child.url,
         title: isEmpty(child.name) ? child.name : __(child.name),
         isDivider: child.type === 'divider' && !isEmpty(child.name),
         className: (child.name === currentLocation || child.name === currentOrganization) ? 'mobile-active' : '',
-        onClick: child.onClick ? () => child.onClick() : () => navigateTo(child.url),
+        onClick: child.onClick,
       };
       childrenArray.push(childObject);
     });

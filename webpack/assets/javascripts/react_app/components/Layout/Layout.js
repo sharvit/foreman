@@ -38,42 +38,51 @@ class Layout extends React.Component {
       items,
       data,
       isLoading,
+      children,
+      history,
       changeActiveMenu,
       changeOrganization,
       changeLocation,
       currentOrganization,
       currentLocation,
     } = this.props;
+
     return (
-      <VerticalNav
-        hoverDelay={0}
-        items={items}
-        onItemClick={changeActiveMenu}
-        {...this.props}
-      >
-        <VerticalNav.Masthead>
-          <VerticalNav.Brand
-            title="foreman"
-            iconImg={data.logo}
-            href={data.root}
-          />
-          <TaxonomySwitcher
-            taxonomiesBool={data.taxonomies}
-            currentLocation={currentLocation}
-            locations={data.locations.available_locations}
-            onLocationClick={changeLocation}
-            currentOrganization={currentOrganization}
-            organizations={data.organizations.available_organizations}
-            onOrgClick={changeOrganization}
-            isLoading={isLoading}
-          />
-          <UserDropdowns
-            notificationUrl={data.notification_url}
-            user={data.user}
-            changeActiveMenu={changeActiveMenu}
-          />
-        </VerticalNav.Masthead>
-      </VerticalNav>
+      <React.Fragment>
+        <VerticalNav
+          hoverDelay={0}
+          items={items}
+          onItemClick={changeActiveMenu}
+          onNavigate={({ url }) => history.push(url)}
+          {...this.props}
+        >
+          <VerticalNav.Masthead>
+            <VerticalNav.Brand
+              title="foreman"
+              iconImg={data.logo}
+              href={data.root}
+            />
+            <TaxonomySwitcher
+              taxonomiesBool={data.taxonomies}
+              currentLocation={currentLocation}
+              locations={data.locations.available_locations}
+              onLocationClick={changeLocation}
+              currentOrganization={currentOrganization}
+              organizations={data.organizations.available_organizations}
+              onOrgClick={changeOrganization}
+              isLoading={isLoading}
+            />
+            <UserDropdowns
+              notificationUrl={data.notification_url}
+              user={data.user}
+              changeActiveMenu={changeActiveMenu}
+            />
+          </VerticalNav.Masthead>
+        </VerticalNav>
+        <div className="container-fluid container-pf-nav-pf-vertical nav-pf-persistent-secondary">
+          {children}
+        </div>
+      </React.Fragment>
     );
   }
 }
@@ -82,6 +91,7 @@ Layout.propTypes = {
   currentOrganization: PropTypes.string,
   currentLocation: PropTypes.string,
   isLoading: PropTypes.bool,
+  children: PropTypes.node,
   fetchMenuItems: PropTypes.func,
   changeActiveMenu: PropTypes.func,
   changeOrganization: PropTypes.func,
@@ -95,7 +105,7 @@ Layout.propTypes = {
       title: PropTypes.string,
       isDivider: PropTypes.bool,
       className: PropTypes.string,
-      onClick: PropTypes.func.isRequired,
+      onClick: PropTypes.func,
     })),
   })),
   data: PropTypes.shape({
@@ -146,6 +156,7 @@ Layout.defaultProps = {
   currentOrganization: 'Any Organization',
   currentLocation: 'Any Location',
   isLoading: false,
+  children: null,
   fetchMenuItems: noop,
   changeActiveMenu: noop,
   changeOrganization: noop,

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const nameCellFormatter = controllerPluralize => (
   value,
@@ -11,11 +12,11 @@ const nameCellFormatter = controllerPluralize => (
 ) =>
   // eslint-disable-next-line camelcase
   (can_edit ? (
-    <a
-      href={`/${controllerPluralize}/${id}-${encodeURI(name)}/edit`}
+    <Link
+      to={`/${controllerPluralize}/${id}-${encodeURI(name)}/edit`}
       data-id={`aid_${controllerPluralize}-${id}-${encodeURI(name)}_edit`}>
       {value}
-    </a>
+    </Link>
   ) : (
     <a href="#" className="disabled" disabled="disabled" onClick={() => {}}>
       {value}

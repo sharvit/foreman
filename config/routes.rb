@@ -403,9 +403,9 @@ Foreman::Application.routes.draw do
       end
     end
 
-    resources :models, :except => [:show] do
+    resources :models, :except => [:show], :controller => 'react' do
       collection do
-        get 'auto_complete_search'
+        get 'auto_complete_search', :controller => 'models'
       end
     end
 
