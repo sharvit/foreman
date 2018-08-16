@@ -12,6 +12,7 @@ import FactChart from './factCharts';
 import SearchBar from './SearchBar';
 import ModelsTable from './ModelsTable';
 import Layout from './Layout';
+import Application from '../Application';
 
 const componentRegistry = {
   registry: {},
@@ -72,6 +73,7 @@ const coreComponets = [
   { name: 'SearchBar', type: SearchBar },
   { name: 'ModelsTable', type: ModelsTable },
   { name: 'Layout', type: Layout },
+  { name: 'Application', type: Application, store: false },
 ];
 
 componentRegistry.registerMultiple(coreComponets);
