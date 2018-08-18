@@ -1,3 +1,6 @@
 <% title _("Edit %s") % @model.to_s %>
 
-<%= render :partial => 'form' %>
+<div id='hw-form'/> 
+<%= mount_react_component('HWModelEditPage', '#hw-form', {
+  url: '/api/models/',
+}.to_json) %>

@@ -13,6 +13,8 @@ import SearchBar from './SearchBar';
 import ModelsTable from './ModelsTable';
 import Layout from './Layout';
 import Application from '../Application';
+import HwCreatePage from './HardwareModel/New';
+import HWModelEditPage from './HardwareModel/Edit';
 
 const componentRegistry = {
   registry: {},
@@ -74,6 +76,8 @@ const coreComponets = [
   { name: 'ModelsTable', type: ModelsTable },
   { name: 'Layout', type: Layout },
   { name: 'Application', type: Application, store: false },
+  { name: 'HwCreatePage', type: HwCreatePage },
+  { name: 'HWModelEditPage', type: HWModelEditPage },
 ];
 
 componentRegistry.registerMultiple(coreComponets);

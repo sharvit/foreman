@@ -6,6 +6,11 @@ import Breadcrumb from './components/Breadcrumb';
 import BreadcrumbSwitcher from './components/BreadcrumbSwitcher';
 
 class BreadcrumbBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { tour: false };
+  }
+
   handleOpen() {
     const {
       data: { resource },
@@ -50,7 +55,7 @@ class BreadcrumbBar extends React.Component {
 
     return (
       <div className="breadcrumb-bar">
-        <Breadcrumb title items={breadcrumbItems} isTitle={isTitle}>
+        <Breadcrumb data-tut='breadcrumbs_bar' title items={breadcrumbItems} isTitle={isTitle}>
           {isSwitchable && (
             <BreadcrumbSwitcher
               open={isSwitcherOpen}
@@ -83,6 +88,7 @@ class BreadcrumbBar extends React.Component {
     );
   }
 }
+
 
 BreadcrumbBar.propTypes = {
   data: PropTypes.shape({
