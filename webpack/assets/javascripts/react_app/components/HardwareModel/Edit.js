@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from './form';
 import { Spinner } from 'patternfly-react';
+import Form from './form';
 import API from '../../API';
 
 class HWModelEditPage extends React.Component {

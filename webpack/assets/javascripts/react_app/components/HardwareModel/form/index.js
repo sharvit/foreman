@@ -9,7 +9,7 @@ import * as FormActions from '../../../redux/actions/common/forms';
 const submit = ({
   name, model, vendor, information,
 }, dispatch, props) => {
-  const { submitForm, url, method = 'post', message = null } = props;
+  const { submitForm, url, method = 'post', message = null, routeTo } = props;
   const values = {
     name,
     hardware_model: model,
@@ -20,19 +20,19 @@ const submit = ({
   return submitForm({
     url, values, item: 'Model', method, message,
   }).then(() =>
-    window.Turbolinks.visit('/models'));
+    routeTo.push('/models'));
 };
 
 class HardwareModelForm extends React.Component {
   render() {
     const {
-      handleSubmit, submitting, error, onCancel,
+      handleSubmit, submitting, error, routeTo,
     } = this.props;
 
     return (
       <Form
         onSubmit={handleSubmit(submit)}
-        onCancel={onCancel}
+        onCancel={() => routeTo('/models')}
         disabled={submitting}
         submitting={submitting}
         error={error}
