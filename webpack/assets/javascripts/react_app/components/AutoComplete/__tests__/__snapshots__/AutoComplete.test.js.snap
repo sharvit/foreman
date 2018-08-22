@@ -12,6 +12,12 @@ exports[`AutoComplete rendering renders AutoComplete 1`] = `
       ]
     }
     excludeScrollbar={false}
+    inputProps={
+      Object {
+        "id": "search",
+        "spellCheck": "false",
+      }
+    }
     isLoading={false}
     onChange={[Function]}
     onFocus={[Function]}
@@ -30,8 +36,10 @@ exports[`AutoComplete rendering renders AutoComplete 1`] = `
     renderMenu={[Function]}
     stopPropagation={false}
   />
+  <AutoCompleteFocusShortcut />
   <AutoCompleteClearButton
     onClear={[Function]}
   />
+  <AutoCompleteError />
 </div>
 `;

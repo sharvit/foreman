@@ -1,6 +1,7 @@
+import URI from 'urijs';
 import API from '../../API';
 import { STATUS } from '../../constants';
-import { urlBuilder } from './helpers';
+
 import {
   AUTO_COMPLETE_REQUEST,
   AUTO_COMPLETE_SUCCESS,
@@ -11,8 +12,7 @@ import {
 
 export const getResults =
 (path, searchQuery, controller, trigger, queryCache) => (dispatch) => {
-  const url = urlBuilder(path, searchQuery, trigger);
-
+  const url = `${path}${URI.encodeQuery(searchQuery)}`;
   // to avoid an extra API call, find if this search query was already used.
   const usedQueryResults = queryCache[controller] && queryCache[controller][searchQuery];
   if (usedQueryResults !== undefined) {
@@ -45,22 +45,29 @@ export const getResults =
 
   // Making an API call
   return API.get(url)
-    .then(({ data }) => dispatch({
-      type: AUTO_COMPLETE_SUCCESS,
-      payload: {
-        controller,
-        queryCache: addQueryToCache(data),
-        results: data,
-        searchQuery,
-        status: STATUS.RESOLVED,
-        trigger,
-      },
-    }))
+    .then(({ data }) => {
+      const { error } = data[0] || {};
+      // The API can return errors too.
+      if (error) {
+        throw error;
+      }
+      return dispatch({
+        type: AUTO_COMPLETE_SUCCESS,
+        payload: {
+          controller,
+          queryCache: addQueryToCache(data),
+          results: data,
+          searchQuery,
+          status: STATUS.RESOLVED,
+          trigger,
+        },
+      });
+    })
     .catch(error => dispatch({
       type: AUTO_COMPLETE_FAILURE,
       payload: {
+        results: [],
         error,
-        queryCache: addQueryToCache([]),
         status: STATUS.ERROR,
       },
     }));
@@ -70,6 +77,7 @@ export const resetData = controller => (dispatch) => {
   dispatch({
     type: AUTO_COMPLETE_RESET,
     payload: { controller },
+    error: null,
   });
 };
 

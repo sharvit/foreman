@@ -44,9 +44,8 @@ export default (state = initialState, action) => {
     case AUTO_COMPLETE_FAILURE:
       return state.merge({
         error,
-        results: [],
+        results,
         status,
-        queryCache,
       });
     case AUTO_COMPLETE_RESET:
       return state.merge({

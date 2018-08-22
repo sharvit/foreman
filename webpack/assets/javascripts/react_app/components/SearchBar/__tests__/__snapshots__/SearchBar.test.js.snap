@@ -7,6 +7,7 @@ exports[`AutoComplete rendering renders AutoComplete 1`] = `
   <AutoComplete
     controller="models"
     getResults={[Function]}
+    handleSearch={[Function]}
     initialQuery=""
     initialUpdate={[Function]}
     queryCache={Object {}}

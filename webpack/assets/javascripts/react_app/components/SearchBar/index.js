@@ -6,10 +6,10 @@ import SearchBar from './SearchBar';
 
 const mapStateToProps = ({
   autocomplete: {
-    results, searchQuery, status, queryCache,
+    results, searchQuery, status, queryCache, error,
   },
 }) => ({
-  results, searchQuery, status, queryCache,
+  results, searchQuery, status, queryCache, error,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);

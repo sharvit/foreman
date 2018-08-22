@@ -4,7 +4,7 @@ module SearchBarHelper
       controller: auto_complete_controller_name,
       autocomplete: {
         url:  "#{auto_complete_controller_name}/auto_complete_search?search=",
-        searchQuery: request.query_parameters['search']
+        searchQuery: params[:search]
       },
       bookmarks: {
         url: api_bookmarks_path,

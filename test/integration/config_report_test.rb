@@ -5,11 +5,6 @@ class ConfigReportIntegrationTest < ActionDispatch::IntegrationTest
     @report = FactoryBot.create(:report, :old_report)
   end
 
-  test "index page" do
-    visit config_reports_path
-    assert find_button('Search').visible?, "Search button is not visible"
-  end
-
   test "reports for host" do
     visit config_reports_path
     click_link(@report.host.fqdn)

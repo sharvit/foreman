@@ -49,11 +49,7 @@ Array [
     Object {
       "payload": Object {
         "error": [Error: oops],
-        "queryCache": Object {
-          "models": Object {
-            "": Array [],
-          },
-        },
+        "results": Array [],
         "status": "ERROR",
       },
       "type": "AUTO_COMPLETE_FAILURE",
@@ -109,6 +105,7 @@ exports[`AutoComplete actions should reset-data 1`] = `
 Array [
   Array [
     Object {
+      "error": null,
       "payload": Object {
         "controller": "models",
       },

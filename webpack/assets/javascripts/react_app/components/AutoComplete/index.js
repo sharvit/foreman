@@ -5,6 +5,8 @@ import { bindMethods, debounceMethods, noop } from '../../common/helpers';
 import AutoCompleteMenu from './components/AutoCompleteMenu';
 import AutoCompleteSearchButton from './components/AutoCompleteSearchButton';
 import AutoCompleteClearButton from './components/AutoCompleteClearButton';
+import AutoCompleteFocusShortcut from './components/AutoCompleteFocusShortcut';
+import AutoCompleteError from './components/AutoCompleteError';
 import { STATUS } from '../../constants';
 import { TRIGGERS } from './AutoCompleteConstants';
 import './auto-complete.scss';
@@ -12,17 +14,41 @@ import './auto-complete.scss';
 class AutoComplete extends React.Component {
   constructor(props) {
     super(props);
-    bindMethods(this, ['handleClear', 'handleInputChange', 'handleResultsChange', 'handleInputFocus', 'getResults']);
+    bindMethods(this, ['handleClear', 'handleInputChange', 'handleResultsChange', 'handleInputFocus', 'getResults', 'keyPressHandler', 'undableHTMLAutocomplete']);
     debounceMethods(this, 250, ['handleInputChange', 'handleLoading']);
     debounceMethods(this, 125, ['handleInputFocus']);
     this._typeahead = React.createRef();
   }
 
   componentDidMount() {
+    window.addEventListener('keypress', this.keyPressHandler);
     const {
       controller, initialQuery, initialUpdate, queryCache,
     } = this.props;
     initialUpdate(initialQuery, controller, queryCache);
+    this.undableHTMLAutocomplete();
+  }
+
+  keyPressHandler(e) {
+    const { keyCode } = e;
+    const instance = this._typeahead.current.getInstance();
+    // If Enter
+    if (keyCode === 13) {
+      this.props.handleSearch();
+    }
+    // If Forward-slash
+    if (keyCode === 47 && !instance.state.showMenu) {
+      e.preventDefault();
+      instance.focus();
+    }
+  }
+
+  undableHTMLAutocomplete() {
+    const input = this._typeahead.current &&
+      this._typeahead.current.getInstance().getInput();
+    if (input) {
+      input.autocomplete = 'off';
+    }
   }
 
   getResults(query, trigger) {
@@ -66,6 +92,7 @@ class AutoComplete extends React.Component {
   }
 
   componentWillUnmount() {
+    window.removeEventListener('keypress', this.keyPressHandler);
     const { resetData, controller } = this.props;
     resetData(controller);
   }
@@ -84,8 +111,11 @@ class AutoComplete extends React.Component {
           emptyLabel={null}
           placeholder={__('Filter ...')}
           renderMenu={(results, menuProps) => <AutoCompleteMenu {...{ results, menuProps }} />}
+          inputProps={{ id: 'search', spellCheck: 'false' }}
         />
+        <AutoCompleteFocusShortcut />
         <AutoCompleteClearButton onClear={this.handleClear} />
+        <AutoCompleteError error={this.props.error}/>
       </div>
     );
   }
@@ -116,5 +146,6 @@ AutoComplete.defaultProps = {
 };
 
 AutoComplete.SearchButton = AutoCompleteSearchButton;
+AutoComplete.Error = AutoCompleteError;
 
 export default AutoComplete;

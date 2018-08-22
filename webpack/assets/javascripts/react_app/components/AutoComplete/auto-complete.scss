@@ -6,7 +6,7 @@
     position: absolute;
     top: 7px;
     font-size: 12px;
-    right: 112px;
+    right: 126px;
     color: $color-pf-black-600;
     z-index: 10;
 
@@ -17,22 +17,50 @@
 
     // Keeps in position when screen size is xs and search button shrinks.
     @media screen and (max-width: 767px) {
-      right: 68px;
+      right: 83px;
     }
+  }
+
+  .autocomplete-focus-shortcut {
+    position: absolute;
+    top: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    right: 108px;
+    z-index: 10;
+    border-radius: 5px;
+    width: 15px;
+    height: 19px;
+    text-align: center;
+    line-height: 17px;
+    border: 1px solid rgba($color-pf-black-600, 0.5);
+    background-color: $color-pf-black-200;
+    color: $color-pf-black-600;
+
+    // Keeps in position when screen size is xs and search button shrinks.
+    @media screen and (max-width: 767px) {
+      right: 65px;
+    }
+  }
+
+  .autocomplete-error {
+    position: absolute;
+    color: $color-pf-red-200;
+  }
+
+  .autocomplete-search-btn-text {
+    display: inline;
   }
 }
 
 // The span that contains the loading spinner should move left
 // to avoid being override by the clear button.
 .rbt-aux {
-  right: 15px;
+  right: 25px;
   z-index: 10;
 }
 
 .rbt-menu {
-  width: -webkit-fill-available;
-}
-
-.autocomplete-search-btn-text {
-  display: inline;
+  width: autoe;
+  min-width: -webkit-fill-available !important;
 }

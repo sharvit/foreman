@@ -7,7 +7,8 @@ import { noop } from '../../common/helpers';
 
 const handleSearch = (searchQuery) => {
   const uri = new URI(window.location.href);
-  uri.setSearch('search', searchQuery.trim());
+  const data = { ...uri.query(true), search: searchQuery.trim(), page: 1 };
+  uri.query(URI.buildQuery(data, true));
   window.Turbolinks.visit(uri.toString());
 };
 
@@ -19,6 +20,7 @@ const SearchBar = ({
   resetData,
   getResults,
   initialUpdate,
+  error,
   data: {
     autocomplete,
     controller,
@@ -37,6 +39,8 @@ const SearchBar = ({
         resetData={resetData}
         getResults={getResults}
         initialUpdate={initialUpdate}
+        handleSearch={() => handleSearch(searchQuery)}
+        error={error}
       />
       <div className="input-group-btn">
         <AutoComplete.SearchButton onClick={() => handleSearch(searchQuery)}/>
@@ -54,12 +58,12 @@ SearchBar.propTypes = {
   getResults: PropTypes.func,
   initialUpdate: PropTypes.func,
   data: PropTypes.shape({
-    autocomplete: {
+    autocomplete: PropTypes.shape({
       searchQuery: PropTypes.string,
       url: PropTypes.string,
-    },
+    }),
     controller: PropTypes.string,
-    bookmarks: Bookmarks.propTypes,
+    bookmarks: PropTypes.shape({ ...Bookmarks.propTypes }),
   }),
 };
 
