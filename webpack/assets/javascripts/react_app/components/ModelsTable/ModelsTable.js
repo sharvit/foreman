@@ -18,15 +18,13 @@ import './ModelsTable.css';
 
 class ModelsTable extends React.Component {
   componentDidMount() {
-    const { results, getTableItems } = this.props;
+    const { getTableItems } = this.props;
 
-    if (!results || !results.length) {
-      getTableItems(
-        'api/models',
-        new URI(window.location.href).query(true),
-        'models',
-      );
-    }
+    getTableItems(
+      'api/models',
+      new URI(window.location.href).query(true),
+      'models',
+    );
   }
   render() {
     // NOTE: empty state is not rendered by react right now.  It's done by Rails.

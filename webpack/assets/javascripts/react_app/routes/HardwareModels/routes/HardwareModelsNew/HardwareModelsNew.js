@@ -1,7 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const HardwareModelsNew = () => (
-  <h1>Hello hardware models new :)</h1>
+import Form from '../../../../components/HardwareModel/form';
+
+const HardwareModelsNew = props => (
+  <div>
+    {' '}
+    <h2> {__('New Hardware Model')} </h2> <Form routeTo={props.history} url={'/api/models'} />{' '}
+  </div>
 );
 
-export default HardwareModelsNew;
+export default withRouter(HardwareModelsNew);

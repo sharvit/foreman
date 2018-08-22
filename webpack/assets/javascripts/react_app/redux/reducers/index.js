@@ -10,7 +10,6 @@ import { reducers as passwordStrengthReducers } from '../../components/PasswordS
 import { reducers as breadcrumbBarReducers } from '../../components/BreadcrumbBar';
 import { reducers as searchBarReducers } from '../../components/SearchBar';
 import { reducers as modelsReducers } from '../../components/ModelsTable';
-import { reducers as searchBarReducers } from '../../components/SearchBar';
 import { reducers as layoutReducers } from '../../components/Layout';
 
 export function combineReducersAsync(asyncReducers) {
@@ -27,7 +26,6 @@ export function combineReducersAsync(asyncReducers) {
     ...searchBarReducers,
     ...modelsReducers,
     ...layoutReducers,
-    ...searchBarReducers,
     ...asyncReducers,
   });
 }
