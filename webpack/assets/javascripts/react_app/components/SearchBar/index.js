@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import * as actions from '../AutoComplete/AutoCompleteActions';
 import reducer from '../AutoComplete/AutoCompleteReducer';
 import SearchBar from './SearchBar';
@@ -16,7 +17,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export const reducers = { autocomplete: reducer };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SearchBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar));

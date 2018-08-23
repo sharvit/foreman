@@ -1,12 +1,26 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+import BreadcrumbsBar from '../../../../components/BreadcrumbBar';
 import Form from '../../../../components/HardwareModel/form';
 
-const HardwareModelsNew = props => (
+const HardwareModelsNew = ({ history }) => (
   <div>
-    {' '}
-    <h2> {__('New Hardware Model')} </h2> <Form routeTo={props.history} url={'/api/models'} />{' '}
+    <BreadcrumbsBar
+      data={{
+        breadcrumbItems: [
+          {
+            caption: __('Hardware Models'),
+            onClick: () =>
+              history.push('/models'),
+          },
+          {
+            caption: __('New Hardware Model'),
+          },
+        ],
+      }}
+    />
+    <Form routeTo={history} url={'/api/models'} />{' '}
   </div>
 );
 

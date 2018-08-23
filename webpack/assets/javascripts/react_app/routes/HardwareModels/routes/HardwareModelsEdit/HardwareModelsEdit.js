@@ -4,11 +4,14 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Form from '../../../../components/HardwareModel/form';
 import API from '../../../../API';
+import BreadcrumbsBar from '../../../../components/BreadcrumbBar';
 import * as HardwareModelActions from './HardwareModelActions';
 
 class HardwareModelsEdit extends React.Component {
   constructor(props) {
     super(props);
+    this.handleBreadcrumbSwitcherItem = this.handleBreadcrumbSwitcherItem.bind(this);
+    this.loadData = this.loadData.bind(this);
     this.state = { id: undefined };
   }
   static propTypes = {
@@ -17,23 +20,38 @@ class HardwareModelsEdit extends React.Component {
     history: PropTypes.object.isRequired,
   };
   componentDidMount() {
+    if (this.props.fields.length === 0) {
+      this.loadData();
+    }
+  }
+
+  componentDidUpdate(oldProps) {
+    if (oldProps.match.params.hardwareModelId !== this.props.match.params.hardwareModelId) {
+      this.loadData();
+    }
+  }
+
+  loadData() {
     const currentId = window.location.pathname.split('/')[2];
 
-    if (this.props.fields.length === 0) {
-      API.get(`/api/models/${currentId}`).then(({
-        data: {
-          name, hardware_model, vendor_class, info, id,
-        },
-      }) => {
-        this.setState({
-          id,
-          name,
-          model: hardware_model,
-          vendor: vendor_class,
-          information: info,
-        });
+    API.get(`/api/models/${currentId}`).then(({
+      data: {
+        name, hardware_model, vendor_class, info, id,
+      },
+    }) => {
+      this.setState({
+        id,
+        name,
+        model: hardware_model,
+        vendor: vendor_class,
+        information: info,
       });
-    }
+    });
+  }
+
+  handleBreadcrumbSwitcherItem(e, url) {
+    this.props.history.push(url);
+    e.preventDefault();
   }
 
   render() {
@@ -42,7 +60,29 @@ class HardwareModelsEdit extends React.Component {
     } = this.state;
 
     const currentId = window.location.pathname.split('/')[2];
-    const header = <h2> {__('New Hardware Model')} </h2>;
+    const resource = {
+      nameField: 'name',
+      resourceUrl: 'https://centos7-luna-devel.sharvits-fedora-book.example.com/api/models',
+      switcherItemUrl: '/models/:id/edit',
+    };
+
+    const header = <BreadcrumbsBar
+    onSwitcherItemClick={(e, url) => this.handleBreadcrumbSwitcherItem(e, url)}
+    data={{
+      isSwitchable: true,
+      breadcrumbItems: [
+        {
+          caption: __('Hardware Models'),
+          onClick: () =>
+            this.props.history.push('/models'),
+        },
+        {
+          caption: String(name || (this.props.fields && this.props.fields.name)),
+        },
+      ],
+      resource,
+    }}
+  />;
 
     if (id) {
       return (

@@ -74,6 +74,7 @@ class HardwareModelForm extends React.Component {
 
 const form = reduxForm({
   form: 'hardware-modal',
+  enableReinitialize: true,
 })(HardwareModelForm);
 
 export default connect(

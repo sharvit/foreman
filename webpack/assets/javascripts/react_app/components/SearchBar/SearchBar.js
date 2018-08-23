@@ -5,49 +5,59 @@ import AutoComplete from '../AutoComplete';
 import Bookmarks from '../bookmarks';
 import { noop } from '../../common/helpers';
 
-const handleSearch = (searchQuery) => {
-  const uri = new URI(window.location.href);
-  const data = { ...uri.query(true), search: searchQuery.trim(), page: 1 };
-  uri.query(URI.buildQuery(data, true));
-  window.Turbolinks.visit(uri.toString());
+const handleSearch = (searchQuery, match, history) => {
+  const data = { ...match.params, search: searchQuery.trim(), page: 1 };
+
+  history.push({
+    pathname: match.path,
+    search: URI.buildQuery(data, true),
+  });
 };
 
-const SearchBar = ({
-  searchQuery,
-  results,
-  status,
-  queryCache,
-  resetData,
-  getResults,
-  initialUpdate,
-  error,
-  data: {
-    autocomplete,
-    controller,
-    bookmarks,
-  },
-}) => (
-  <div className="input-group">
-      <AutoComplete
-        controller={controller}
-        searchQuery={searchQuery}
-        initialQuery={autocomplete.searchQuery || ''}
-        status={status}
-        results={results}
-        url={autocomplete.url}
-        queryCache={queryCache}
-        resetData={resetData}
-        getResults={getResults}
-        initialUpdate={initialUpdate}
-        handleSearch={() => handleSearch(searchQuery)}
-        error={error}
-      />
-      <div className="input-group-btn">
-        <AutoComplete.SearchButton onClick={() => handleSearch(searchQuery)}/>
-        <Bookmarks data={ { ...bookmarks, controller, searchQuery } } />
+class SearchBar extends React.Component {
+  render() {
+    const {
+      history,
+      match,
+      searchQuery,
+      results,
+      status,
+      queryCache,
+      resetData,
+      getResults,
+      initialUpdate,
+      error,
+      data: {
+        autocomplete,
+        controller,
+        bookmarks,
+      },
+    } = this.props;
+
+    return (
+      <div className="input-group">
+          <AutoComplete
+            controller={controller}
+            searchQuery={searchQuery}
+            initialQuery={autocomplete.searchQuery || ''}
+            status={status}
+            results={results}
+            url={autocomplete.url}
+            queryCache={queryCache}
+            resetData={resetData}
+            getResults={getResults}
+            initialUpdate={initialUpdate}
+            handleSearch={() => handleSearch(searchQuery, match, history)}
+            error={error}
+          />
+          <div className="input-group-btn">
+            <AutoComplete.SearchButton onClick={() => handleSearch(searchQuery, match, history)}/>
+            <Bookmarks data={ { ...bookmarks, controller, searchQuery } } />
+          </div>
       </div>
-  </div>
-);
+    );
+  }
+}
 
 SearchBar.propTypes = {
   searchQuery: PropTypes.string,

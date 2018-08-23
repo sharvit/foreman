@@ -26,6 +26,20 @@ class ModelsTable extends React.Component {
       'models',
     );
   }
+
+  componentDidUpdate(prevProps) {
+    const { location, getTableItems } = this.props;
+    const { location: prevLocation } = prevProps;
+
+    if (location !== prevLocation) {
+      getTableItems(
+        'api/models',
+        new URI(window.location.href).query(true),
+        'models',
+      );
+    }
+  }
+
   render() {
     // NOTE: empty state is not rendered by react right now.  It's done by Rails.
     // TODO(bshuster): Remove this note once HW Model is turned to a React page.
