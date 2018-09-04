@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 import store from './react_app/redux';
 
-import * as ToastActions from './react_app/redux/actions/toasts';
+import { addToast, clearToasts } from './react_app/components/ToastNotifications/ToastNotificationsActions';
 
 const isStickyType = type => !['success', 'info'].includes(type);
 
@@ -12,7 +12,7 @@ const isStickyType = type => !['success', 'info'].includes(type);
 export const notify = ({
   message, type, link, sticky = isStickyType(type),
 }) =>
-  store.dispatch(ToastActions.addToast({
+  store.dispatch(addToast({
     type,
     message,
     sticky,
@@ -22,7 +22,7 @@ export const notify = ({
 /**
  * Clear all toast notifications
  */
-export const clear = () => store.dispatch(ToastActions.clearToasts());
+export const clear = () => store.dispatch(clearToasts());
 
 const railsNotificationToToastNotification = ({ link, type, message }) => {
   const toast = { type, message };

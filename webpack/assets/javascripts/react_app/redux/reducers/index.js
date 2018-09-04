@@ -4,10 +4,10 @@ import bookmarks from './bookmarks';
 import statistics from './statistics';
 import hosts from './hosts';
 import notifications from './notifications/';
-import toasts from './toasts';
+import factChart from './factCharts/';
+import { reducers as toastNotificationsReducers } from '../../components/ToastNotifications';
 import { reducers as passwordStrengthReducers } from '../../components/PasswordStrength';
 import { reducers as breadcrumbBarReducers } from '../../components/BreadcrumbBar';
-import factChart from './factCharts/';
 
 export function combineReducersAsync(asyncReducers) {
   return combineReducers({
@@ -16,11 +16,11 @@ export function combineReducersAsync(asyncReducers) {
     statistics,
     hosts,
     notifications,
-    toasts,
+    factChart,
+    ...toastNotificationsReducers,
     ...passwordStrengthReducers,
     ...breadcrumbBarReducers,
     ...asyncReducers,
-    factChart,
   });
 }
 

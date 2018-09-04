@@ -4,7 +4,7 @@ import DonutChart from './common/charts/DonutChart';
 import StatisticsChartsList from './statistics/StatisticsChartsList';
 import PowerStatus from './hosts/powerStatus/';
 import NotificationContainer from './notifications/';
-import ToastsList from './toastNotifications/';
+import ToastNotifications from './ToastNotifications';
 import StorageContainer from './hosts/storage/vmware/';
 import BookmarkContainer from './bookmarks';
 import PasswordStrength from './PasswordStrength';
@@ -63,7 +63,7 @@ const coreComponets = [
   { name: 'StatisticsChartsList', type: StatisticsChartsList },
   { name: 'PowerStatus', type: PowerStatus },
   { name: 'NotificationContainer', type: NotificationContainer },
-  { name: 'ToastNotifications', type: ToastsList, data: false },
+  { name: 'ToastNotifications', type: ToastNotifications, data: false },
   { name: 'StorageContainer', type: StorageContainer },
   { name: 'PasswordStrength', type: PasswordStrength },
   { name: 'BreadcrumbBar', type: BreadcrumbBar },
