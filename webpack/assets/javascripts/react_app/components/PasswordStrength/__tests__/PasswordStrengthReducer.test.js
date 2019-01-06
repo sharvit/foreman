@@ -4,7 +4,7 @@ import {
 } from '../PasswordStrengthConstants';
 
 import reducer from '../PasswordStrengthReducer';
-import { testReducerSnapshotWithFixtures } from '../../../common/testHelpers';
+import { testReducerSnapshotWithFixtures } from 'react-redux-test-utils';
 
 const fixtures = {
   'should return the initial state': {},

@@ -6,7 +6,7 @@ import {
 } from '../AutoCompleteConstants';
 import reducer from '../AutoCompleteReducer';
 
-import { testReducerSnapshotWithFixtures } from '../../../common/testHelpers';
+import { testReducerSnapshotWithFixtures } from 'react-redux-test-utils';
 import * as mock from '../AutoComplete.fixtures';
 
 const fixtures = {

@@ -1,5 +1,5 @@
 import { radioMock } from './DiffView.fixtures';
-import { testComponentSnapshotsWithFixtures } from '../../common/testHelpers';
+import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
 
 import DiffRadioButtons from './DiffRadioButtons';
 

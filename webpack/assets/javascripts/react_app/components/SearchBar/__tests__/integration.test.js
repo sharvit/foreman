@@ -1,6 +1,6 @@
 import React from 'react';
+import { IntegrationTestHelper } from 'react-redux-test-utils';
 import API from '../../../API';
-import IntegrationTestHelper from '../../../common/IntegrationTestHelper';
 import { SearchBarProps } from '../SearchBar.fixtures';
 import SearchBar, { reducers } from '../index';
 import bookmarksReducer from '../../../redux/reducers/bookmarks';

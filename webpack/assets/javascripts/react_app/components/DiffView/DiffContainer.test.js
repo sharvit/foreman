@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { diffMock } from './DiffView.fixtures';
-import { testComponentSnapshotsWithFixtures } from '../../common/testHelpers';
+import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
 
 import DiffContainer from './DiffContainer';
 

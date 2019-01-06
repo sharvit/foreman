@@ -8,7 +8,7 @@ import {
 
 import reducer from '../LayoutReducer';
 
-import { testReducerSnapshotWithFixtures } from '../../../common/testHelpers';
+import { testReducerSnapshotWithFixtures } from 'react-redux-test-utils';
 import { layoutMock } from '../Layout.fixtures';
 
 const fixtures = {

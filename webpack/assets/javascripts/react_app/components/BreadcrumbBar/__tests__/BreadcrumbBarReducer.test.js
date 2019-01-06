@@ -7,7 +7,7 @@ import {
 } from '../BreadcrumbBarConstants';
 import reducer from '../BreadcrumbBarReducer';
 
-import { testReducerSnapshotWithFixtures } from '../../../common/testHelpers';
+import { testReducerSnapshotWithFixtures } from 'react-redux-test-utils';
 import { resource, resourceList } from '../BreadcrumbBar.fixtures';
 
 const fixtures = {

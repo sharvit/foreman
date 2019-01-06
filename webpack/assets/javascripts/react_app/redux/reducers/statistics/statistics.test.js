@@ -9,7 +9,7 @@ import {
 } from './statistics.fixtures';
 
 import reducer from './index';
-import { testReducerSnapshotWithFixtures } from '../../../common/testHelpers';
+import { testReducerSnapshotWithFixtures } from 'react-redux-test-utils';
 
 describe('statistics reducer', () => {
   const fixtures = {

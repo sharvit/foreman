@@ -9,7 +9,7 @@ import {
 } from './powerStatus.fixtures';
 
 import reducer from './index';
-import { testReducerSnapshotWithFixtures } from '../../../../common/testHelpers';
+import { testReducerSnapshotWithFixtures } from 'react-redux-test-utils';
 
 describe('powerStatus reducer', () => {
   const fixtures = {
