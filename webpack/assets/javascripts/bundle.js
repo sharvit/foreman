@@ -13,11 +13,11 @@ if (process.env.NODE_ENV !== 'production') {
 
 import 'babel-polyfill';
 
-require('expose-loader?$!expose-loader?jQuery!jquery');
+window.$ = window.jQuery = require('jquery'); // eslint-disable-line no-multi-assign
 require('jquery-ujs');
-require('expose-loader?jstz!jstz');
-require('expose-loader?ipaddr!ipaddr.js');
-require('expose-loader?JsDiff!diff');
+window.jstz = require('jstz');
+window.ipaddr = require('ipaddr.js');
+window.JsDiff = require('diff');
 require('./bundle_flot');
 require('./bundle_multiselect');
 require('./bundle_select2');
