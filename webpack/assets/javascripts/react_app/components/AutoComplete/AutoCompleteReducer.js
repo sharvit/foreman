@@ -42,7 +42,7 @@ export default (state = Immutable({}), action) => {
       return state.setIn([id], {
         ...state[id],
         controller,
-        error: null,
+        error,
         results,
         searchQuery,
         status,

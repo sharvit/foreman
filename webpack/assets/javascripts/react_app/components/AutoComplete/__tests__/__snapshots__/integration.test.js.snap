@@ -45,7 +45,7 @@ Object {
   "autocomplete": Object {
     "some-id": Object {
       "controller": "models",
-      "error": null,
+      "error": undefined,
       "results": Array [],
       "searchQuery": "",
       "status": "RESOLVED",
@@ -169,6 +169,7 @@ Object {
       Object {
         "payload": Object {
           "controller": "models",
+          "error": undefined,
           "id": "some-id",
           "results": Array [
             Object {
@@ -188,7 +189,7 @@ Object {
     "autocomplete": Object {
       "some-id": Object {
         "controller": "models",
-        "error": null,
+        "error": undefined,
         "results": Array [
           Object {
             "category": "",
@@ -211,6 +212,7 @@ Object {
       Object {
         "payload": Object {
           "controller": "models",
+          "error": undefined,
           "id": "some-id",
           "results": Array [
             Object {
@@ -234,7 +236,7 @@ Object {
     "autocomplete": Object {
       "some-id": Object {
         "controller": "models",
-        "error": null,
+        "error": undefined,
         "results": Array [
           Object {
             "category": "",

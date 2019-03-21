@@ -46,6 +46,7 @@ Array [
     Object {
       "payload": Object {
         "controller": "models",
+        "error": undefined,
         "id": "some-id",
         "results": Array [
           Object {
