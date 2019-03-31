@@ -18,13 +18,14 @@ export const getResults = ({
   trigger,
   id,
 }) => dispatch => {
-  startRequest({
-    controller,
-    searchQuery,
-    trigger,
-    dispatch,
-    id,
-  });
+  dispatch(
+    startRequest({
+      controller,
+      searchQuery,
+      trigger,
+      id,
+    })
+  );
 
   return createAPIRequest({
     controller,
@@ -36,7 +37,7 @@ export const getResults = ({
   });
 };
 
-let createAPIRequest = ({
+let createAPIRequest = async ({
   controller,
   searchQuery,
   trigger,
@@ -45,46 +46,45 @@ let createAPIRequest = ({
   url,
 }) => {
   if (!url) {
-    requestFailure({ error: null, id, dispatch });
+    dispatch(requestFailure({ error: null, id }));
     throw new Error('No API path was provided.');
   }
-  const path = getAPIPath({ trigger, searchQuery, url });
-  return API.get(path)
-    .then(({ data }) =>
+  try {
+    const path = getAPIPath({ trigger, searchQuery, url });
+    const { data } = await API.get(path);
+
+    return dispatch(
       requestSuccess({
         data,
         controller,
-        dispatch,
         searchQuery,
         trigger,
         id,
       })
-    )
-    .catch(error => {
-      if (!error.visible) {
-        requestFailure({ error: null, id, dispatch });
-        // this would be a console error.
-        throw error;
-      }
-      // this would be a UI visible error.
-      requestFailure({ error: error.message, id, dispatch });
-    });
+    );
+  } catch (error) {
+    if (!error.visible) {
+      dispatch(requestFailure({ error: null, id }));
+      // this would be a console error.
+      throw error;
+    }
+    // this would be a UI visible error.
+    return dispatch(requestFailure({ error: error.message, id }));
+  }
 };
 
 createAPIRequest = debounce(createAPIRequest, 250);
 
-const startRequest = ({ controller, searchQuery, trigger, dispatch, id }) => {
-  dispatch({
-    type: AUTO_COMPLETE_REQUEST,
-    payload: {
-      controller,
-      searchQuery,
-      status: STATUS.PENDING,
-      trigger,
-      id,
-    },
-  });
-};
+const startRequest = ({ controller, searchQuery, trigger, id }) => ({
+  type: AUTO_COMPLETE_REQUEST,
+  payload: {
+    controller,
+    searchQuery,
+    status: STATUS.PENDING,
+    trigger,
+    id,
+  },
+});
 
 const requestSuccess = ({
   data,
@@ -92,8 +92,7 @@ const requestSuccess = ({
   controller,
   searchQuery,
   id,
-  dispatch,
-}) => {
+}) => dispatch => {
   const { error } = data[0] || {};
   if (error) {
     // eslint-disable-next-line no-throw-literal
@@ -114,17 +113,15 @@ const requestSuccess = ({
   });
 };
 
-const requestFailure = ({ error, id, dispatch }) => {
-  dispatch({
-    type: AUTO_COMPLETE_FAILURE,
-    payload: {
-      results: [],
-      error,
-      status: STATUS.ERROR,
-      id,
-    },
-  });
-};
+const requestFailure = ({ error, id }) => ({
+  type: AUTO_COMPLETE_FAILURE,
+  payload: {
+    results: [],
+    error,
+    status: STATUS.ERROR,
+    id,
+  },
+});
 
 const isFinishedWithPoint = string => string.slice(-1) === '.';
 
@@ -139,24 +136,22 @@ const getAPIPath = ({ trigger, searchQuery, url }) => {
   return APIPath.toString();
 };
 
-export const resetData = (controller, id) => dispatch =>
-  dispatch({
-    type: AUTO_COMPLETE_RESET,
-    payload: { controller, id },
-  });
+export const resetData = (controller, id) => ({
+  type: AUTO_COMPLETE_RESET,
+  payload: { controller, id },
+});
 
-export const initialUpdate = (searchQuery, controller, id) => dispatch =>
-  dispatch({
-    type: AUTO_COMPLETE_SUCCESS,
-    payload: {
-      searchQuery,
-      controller,
-      trigger: TRIGGERS.COMPONENT_DID_MOUNT,
-      status: STATUS.RESOLVED,
-      results: [],
-      id,
-    },
-  });
+export const initialUpdate = (searchQuery, controller, id) => ({
+  type: AUTO_COMPLETE_SUCCESS,
+  payload: {
+    searchQuery,
+    controller,
+    trigger: TRIGGERS.COMPONENT_DID_MOUNT,
+    status: STATUS.RESOLVED,
+    results: [],
+    id,
+  },
+});
 
 const objectDeepTrim = (obj, trigger) => {
   const copy = { ...obj };
