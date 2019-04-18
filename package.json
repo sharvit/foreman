@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "@theforeman/vendor": "^0.1.0-alpha.2",
+    "file-saver": "^2.0.1",
     "intl": "~1.2.5",
     "jed": "^1.1.1",
     "number_helpers": "^0.1.1",
