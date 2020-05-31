@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CPUCoresInput rendering should render with default props 1`] = `
+exports[`MemoryAllocationInput rendering should render with default props 1`] = `
 <FormGroup
   bsClass="form-group"
   validationState={null}
@@ -18,14 +18,16 @@ exports[`CPUCoresInput rendering should render with default props 1`] = `
         bsClass="col"
         componentClass="div"
       >
-        <NumericInput
+        <NumberInput
           className=""
-          format={null}
-          label="CPUs"
-          minValue={1}
+          disabled={false}
+          format={[Function]}
+          label="Memory"
+          minValue={0}
           onChange={[Function]}
           precision={0}
-          step={1}
+          readOnly={false}
+          step={256}
           value={1}
         />
       </Col>
