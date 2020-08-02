@@ -18,7 +18,7 @@ const MemoryAllocationInput = ({
 }) => {
   const GBFormat = 'GB';
   const MBFormat = 'MB';
-  const GBStep = 1;
+  const GBStep = 1024;
   const MBStep = 256;
   const [value, setValue] = useState(defaultValue);
   const [sizeType, setSizeType] = useState(MBFormat);
@@ -36,22 +36,57 @@ const MemoryAllocationInput = ({
     return null;
   }, [recommendedMaxValue, maxValue, value]);
 
-  const handleChange = v => {
-    if (value === 1 && sizeType === GBFormat && v < value) {
-      setValue(768);
-      setSizeType(MBFormat);
-      setStep(MBStep);
-    } else if (value === 768 && sizeType === MBFormat && v > value) {
-      setValue(1);
-      setSizeType(GBFormat);
-      setStep(GBStep);
-    } else if (value === 1 && sizeType === MBFormat && v > value) {
-      setValue(256);
+  const handleValueIncrease = () => {
+    if (value >= GBStep) {
+      setValue(value + GBStep);
     } else {
-      setValue(v);
+      setValue(value + MBStep);
     }
+  };
+
+  const handleValueDecrease = () => {
+    if (value <= GBStep) {
+      setValue(value - MBStep);
+    } else {
+      setValue(value - GBStep);
+    }
+  };
+
+  const handleTypedValue = v => {
+    if (v > GBStep) {
+      setValue(Math.round(v / GBStep) * GBStep);
+    } else {
+      setValue(Math.round(v / MBStep) * MBStep);
+    }
+  };
+
+  const handleChange = v => {
+    if (v === value + 1) {
+      handleValueIncrease();
+    } else if (v === value - 1) {
+      handleValueDecrease();
+    } else {
+      handleTypedValue(v);
+    }
+
     onChange(value);
   };
+
+  const format = v => {
+    // used the buttons
+    if (v % MBStep === 0) {
+      if (v >= GBStep) {
+        return `${v / GBStep} ${GBFormat}`;
+      }
+
+      return `${v} ${MBFormat}`;
+    }
+
+    // typed value
+    return v;
+  };
+
+  const parser = str => str.replace(/\D/g, '');
   const validationState = getValidationState();
   return (
     <FormGroup validationState={validationState}>
@@ -60,8 +95,9 @@ const MemoryAllocationInput = ({
           <Col>
             <NumberInput
               value={value}
-              format={v => `${v} ${sizeType}`}
-              step={step}
+              format={format}
+              parser={parser}
+              step={1}
               onChange={v => handleChange(v)}
               label={label}
             />

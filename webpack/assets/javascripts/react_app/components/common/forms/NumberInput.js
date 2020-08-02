@@ -13,6 +13,7 @@ const NumberInput = ({
   value,
   onChange,
   format,
+  parser,
   step,
   precision,
   minValue,
@@ -22,6 +23,7 @@ const NumberInput = ({
   <CommonForm label={label} className={`common-numericInput ${className}`}>
     <RCInputNumber
       formatter={format}
+      parser={parser}
       step={step}
       min={minValue}
       value={value}
@@ -38,6 +40,7 @@ NumberInput.propTypes = {
   className: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   format: PropTypes.func,
+  parser: PropTypes.func,
   step: PropTypes.number,
   precision: PropTypes.number,
   minValue: PropTypes.number,
@@ -51,6 +54,7 @@ NumberInput.defaultProps = {
   className: '',
   value: 0,
   format: null,
+  parser: undefined,
   step: 1,
   precision: 0,
   minValue: 0,

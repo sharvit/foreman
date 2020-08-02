@@ -13,7 +13,7 @@ export default {
 export const UseMemoryAllocationInput = () => (
   <MemoryAllocationInput
     label={text('Label', 'Memory')}
-    defaultValue={number('DefaultValue', 1)}
+    defaultValue={number('DefaultValue', 1024)}
     onChange={action('Value was changed')}
     recommendedMaxValue={number('RecommendedMaxValue', 10)}
     recommendedMaxValueSizeType={text('RecommendedMaxValueSizeType', 'GB')}
